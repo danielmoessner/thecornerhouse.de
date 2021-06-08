@@ -3,6 +3,7 @@ tmp/secrets.json
 tmp/venv/*
 node_modules/*
 tmp/*
+tmp/django.log
 static/dist/css/main.css
 static/dist/js/main.js
 tmp/media/*
