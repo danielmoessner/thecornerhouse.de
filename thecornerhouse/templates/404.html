@@ -1,0 +1,8 @@
+{% extends "layout/base.html" %}
+
+{% block body %}
+    <div style="padding: 10%;">
+        <h1>404 Fehler - Seite nicht gefunden</h1>
+        <p>Da ist leider ein Fehler passiert. <a href="{% url 'website:index' %}">Zurück zur Startseite</a></p>
+    </div>
+{% endblock body %}

@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="de-de" class="scheme_original">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<link href="{% static 'img/icon.png' %}" rel="shortcut icon" type="image/x-icon">
+	<link href="{% static 'img/icon.png' %}" rel="apple-touch-icon">
+	<title>{{ title }}</title>
+  	<meta content="{{ description }}" name="description">
+  	<meta content="{{ title }}" property="og:title">
+  	<meta content="{{ description }}" property="og:description">
+	<!-- header_code -->
+	{{ header_code|safe }}
+	<!-- end header_code -->
+	<style type="text/css">
+		td:first-child{
+			width: 70%;
+		}
+		@font-face { 
+			font-family: "dejavu-serif-bold"; 
+			src: url("../fonts/dejavu-serif.bold.ttf"); 
+		}
+		* {
+			font-family: "dejavu-serif-bold"; 
+		}
+	</style>
+</head>
+<body class="">
+
+	<h1 style="text-align: center">Menü</h1>
+
+
+
+    {% for category1, food_categories in menu.items %}
+		<h2 style="text-align: center; margin-top: 60px;">{{ category1 }}</h2>
+		{% for category, drinks in food_categories.items %}
+	        <h3 style="text-align: center; margin-top: 40px;">{{ category }}</h3>
+	        <table style="width: 100%;">
+		        {% for drink in drinks %}
+					<tr>
+		        		<td style="margin-right: auto;"><b>{{ drink.name }}</b> {% for additive in drink.additives %}<sup>{% if forloop.first %}{{ additive }}{% else %}, {{ additive }}{% endif %}</sup>{% endfor %}</td>
+		        		{% for ppq in drink.ppqs %}
+		        			<td style="text-align: right;"><b>{{ ppq.price }}</b></td>
+		        		{% endfor %}
+		        	</tr>
+		        	<tr>
+		        		<td>{{ drink.description }}</td>
+		        		{% for ppq in drink.ppqs %}
+		        			<td style="text-align: right;">{% if ppq.unit != 'NONE' %}{{ ppq.content }} {{ ppq.unit|lower }}{% endif %}</td>
+		        		{% endfor %}
+		        	</tr>
+		        {% endfor %}
+	        </table>
+	    {% endfor %}
+    {% endfor %}
+
+    <div style="margin: 100px;"></div>
+
+    <h2>Info</h2>
+    <p>
+    	Alle Preise inklusive 19% Mehrwertsteuer.
+    </p>
+
+    <h2 style="margin-top: 60px;">Legende der Zusatzstoffe</h2>
+    <table>
+    {% for additive in additives %}
+    	<tr>
+    		<td style="width: auto;">{{ additive.number }}:</td>
+    		<td>{{ additive.description }}</td>
+    	</tr>
+    {% endfor %}
+    </table>
+
+	<!-- footer_code -->
+	{{ footer_code|safe }}
+	<!-- end footer_code -->
+</body>
+</html>

@@ -1,0 +1,65 @@
+{% load static %}
+
+
+<footer class="footer_wrap widget_area scheme_original show-footer-border-no">
+	<div class="footer_wrap_inner widget_area_inner">
+		<div class="content_wrap">
+			<div class="columns_wrap">
+				<aside class="widget_number_1 column-1_3 widget widget_text">
+					<h2 class="widget_title">Kontakt</h2>
+					<div class="textwidget">
+						Telefon: <a href="tel:{{ text_snippets_general.telefon }}">{{ text_snippets_general.telefon }}</a><br>
+						E-Mail: <a href="mail:{{ text_snippets_general.email }}">{{ text_snippets_general.email }}</a>
+					</div>
+				</aside><aside class="widget_number_2 column-1_3 widget widget_text">
+					<h2 class="widget_title">Öffnungszeiten</h2>
+					<div class="textwidget">
+						<div class="custom-1352">
+                        	{{ text_snippets_general.oeffnungszeiten|linebreaks }}
+                        </div>
+					</div>
+				</aside><aside class="widget_number_3 column-1_3 widget widget_text">
+					<h2 class="widget_title">The Corner House</h2>
+					<div class="textwidget">
+						<div class="custom-1352">
+							{{ text_snippets_general.adresse|linebreaks }}
+						</div>
+					</div>
+				</aside>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<footer class="contacts_wrap scheme_original show-footer-border-no">
+	<div class="contacts_wrap_inner">
+		<div class="content_wrap">
+			<div class="logo">
+				<a href="{% url 'website:index' %}">
+					<img src="{% static 'img/logo_invert.png' %}" class="logo_footer" alt="logo" style="width: 256px;">
+				</a>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<div class="copyright_wrap copyright_style_socials scheme_original">
+	<div class="copyright_wrap_inner">
+		<div class="content_wrap">
+			<div class="copyright_text">
+				<a href="{% url 'website:index' %}">The Corner House</a> © 2020 - {% for sp in static_pages_footer %}{% if forloop.first %}{% elif forloop.last %} und {% else %}, {% endif %}<a href="{% url 'website:static_page' sp.slug %}">{{ sp.name }}</a>{% endfor %}
+			</div>
+			<div class="sc_socials sc_socials_type_icons sc_socials_shape_square sc_socials_size_tiny">
+				<div class="sc_socials_item">
+					<a href="https://www.facebook.com/thecornerhousemoosburg/" target="_blank" class="social_icons social_facebook">
+						<span class="icon-facebook"></span>
+					</a>
+				</div><div class="sc_socials_item">
+					<a href="https://www.instagram.com/the_corner_house_moosburg/?hl=de" target="_blank" class="social_icons social_instagramm">
+						<span class="icon-instagramm"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

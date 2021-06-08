@@ -1,0 +1,96 @@
+{% extends "layout/sub.html" %}
+
+
+{% load static %}
+
+
+{% block sub %}
+
+<div class="top_panel_title top_panel_style_8 breadcrumbs_present scheme_original">
+	<div class="top_panel_title_inner top_panel_inner_style_8 breadcrumbs_present_inner">
+		<div class="content_wrap">
+			<div class="breadcrumbs"><a class="breadcrumbs_item home" href="{% url 'website:index' %}">The Corner House</a><span class="breadcrumbs_delimiter"></span><span class="breadcrumbs_item current">Kontakt</span>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="page_content_wrap page_paddings_no">
+	<div class="content">
+		<article class="post_item post_item_single page">
+			<div class="post_content">
+				<section class="spt36rem">
+					<div class="container">
+						<div class="columns_wrap sc_columns">
+							<div class="column-1_3 sc_column_item sc_column_item_1 odd first">
+								<div class="sc_section section_style_colored aligncenter bg_color_1">
+									<div class="sc_section_inner">
+										<div class="sc_section_overlay">
+											<div class="sc_section_content padding_on">
+												<h2 class="sc_title sc_align_center white mb01em">Öffnungszeiten</h2>
+												<div class="mbn_ne">
+													<div class="custom-3939">
+														{{ opening_hours|linebreaks }}
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div><div class="column-1_3 sc_column_item even">
+							<div class="sc_section section_style_colored aligncenter bg_color_1">
+								<div class="sc_section_inner">
+									<div class="sc_section_overlay">
+										<div class="sc_section_content padding_on">
+											<h2 class="sc_title sc_align_center white mb01em">Adresse</h2>
+											<div class="mbn_ne">
+												<div class="custom-3939">{{ address|linebreaks }}</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div><div class="column-1_3 sc_column_item odd">
+							<div class="sc_section section_style_colored aligncenter bg_color_1">
+								<div class="sc_section_inner">
+									<div class="sc_section_overlay">
+										<div class="sc_section_content padding_on">
+											<h2 class="sc_title sc_align_center white mb01em">Kontakt</h2>
+											<div class="mbn_ne">
+												<p class="white">
+													{{ contact_phone }}<br>
+													{{ contact_mail }}
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</section>
+				<section class="spv5rem">
+					<div class="container">
+						<div class="sc_form_wrap">
+							<div class="sc_form sc_form_style_form_1 contact_form_main aligncenter mw470">
+								<h5 class="sc_form_subtitle sc_item_subtitle">{{ text_snippets.hauptsektion_vortitel|linebreaksbr }}</h5>
+								<h1 class="sc_form_title">{{ text_snippets.hauptsektion_titel|linebreaksbr }}</h1>
+								<p>{{ text_snippets.hauptsektion_untertitel|linebreaksbr }}</p>
+								<p style="margin-top: 4rem; text-align: left; margin-bottom: 0.5rem;">
+									{{ text_snippets.hauptsektion_hinweise|linebreaksbr }}
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="">
+					<div class="container-fluid">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2645.4905860929116!2d11.936445015660528!3d48.46630287925105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e3d86006dbbe3%3A0xb699dfeff0ec5a8c!2sThe+Corner+House!5e0!3m2!1sde!2sde!4v1564050269039!5m2!1sde!2sde" style="width: 100%;" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>							
+					</div>
+				</section>
+			</div>
+		</article>
+	</div>
+</div>
+
+{% endblock sub %}

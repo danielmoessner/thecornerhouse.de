@@ -1,0 +1,103 @@
+{% load static %}
+
+<!-- desktop -->
+<nav class="menu_pushy_nav_area pushy pushy-left scheme_dark">
+    <div class="pushy_inner">
+        <a href="#" class="close-pushy"></a>
+        <div class="logo">
+            <a href="{% url 'website:index' %}">
+                <img src="{% static 'img/logo_normal.png' %}" class="logo_side" alt="logo" style="width: 256px; height: auto;">
+            </a>
+        </div>
+        <ul id="menu_pushy" class="menu_pushy_nav">
+            <li class="menu-item menu-item-object-page ">
+                <a href="{% url 'website:index' %}">Startseite</a>
+            </li>
+            <li class="menu-item menu-item-object-page ">
+                <a target="_blank" href="/media/{{ settings_general.karte }}">Zur Togo Karte</a>
+            </li>
+           <li class="menu-item menu-item-object-page ">
+                <a target="_blank" href="https://thecornerhouse.lecker123.de/">Zum Onlineshop</a>
+            </li>
+            <li class="menu-item menu-item-object-page ">
+                <a href="{% url 'website:about' %}">Über uns</a>
+            </li>
+            <li class="menu-item  menu-item-has-children">
+                <a href="#">Blog</a>
+                <ul class="sub-menu">
+                    <li class="menu-item menu-item-object-page ">
+                        <a href="{% url 'website:blog' %}">Alle Artikel</a>
+                    </li>
+                    {% for article_category in article_categories %}
+                        <li class="menu-item menu-item-object-page ">
+                            <a href="{% url 'website:article_category' article_category.slug %}">{{ article_category.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li class="menu-item menu-item-object-page ">
+                <a href="{% url 'website:menu' %}">Menü</a>
+            </li>
+            <li class="menu-item menu-item-object-page ">
+                <a href="{% url 'website:contact' %}">Kontakt</a>
+            </li>
+        </ul>
+        <a target="_blank" href="/media/{{ settings_general.karte }}" class="margin_bottom_small shop-alert-button sc_emailer_button sc_button sc_button_style_filled style_color_light">Togo Karte anschauen</a>
+        <a target="_blank" href="https://thecornerhouse.lecker123.de/" class="shop-alert-button sc_emailer_button sc_button sc_button_style_filled style_color_light">Zum Onlineshop</a>
+    </div>
+</nav>
+<div class="site-overlay"></div>
+
+<!-- mobile -->
+<div class="header_mobile">
+    <div class="content_wrap">
+        <div class="menu_button icon-menu"></div>
+        <div class="logo">
+            <a href="{% url 'website:index' %}">
+                <img src="{% static 'img/logo_normal.png' %}" class="logo_main" alt="" width="132" height="54">
+            </a>
+        </div>
+    </div>
+    <div class="side_wrap">
+        <div class="close">Close</div>
+        <div class="panel_top">
+            <nav class="menu_`main_nav_area">
+                <ul id="menu_main" class="menu_main_nav">
+                    <li class="menu-item menu-item-object-page ">
+                        <a href="{% url 'website:index' %}">Startseite</a>
+                    </li>
+                    <li class="menu-item menu-item-object-page ">
+                        <a href="/media/{{ settings_general.karte }}" target="_blank">Zur Togo-Karte</a>
+                    </li>
+                    <li class="menu-item menu-item-object-page ">
+                        <a target="_blank" href="https://thecornerhouse.lecker123.de/">Zum Onlineshop</a>
+                    </li>
+                    <li class="menu-item menu-item-object-page ">
+                        <a href="{% url 'website:about' %}">Über uns</a>
+                    </li>
+                    <li class="menu-item menu-item-has-children ">
+                        <a href="#">Blog</a>
+                        <ul class="sub-menu">
+                            <li class="menu-item menu-item-object-page ">
+                                <a href="{% url 'website:blog' %}">Alle Artikel</a>
+                            </li>
+                            {% for article_category in article_categories %}
+                                <li class="menu-item menu-item-object-page ">
+                                    <a href="{% url 'website:article_category' article_category.slug %}">{{ article_category.name }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li class="menu-item menu-item-object-page ">
+                        <a href="{% url 'website:menu' %}">Menü</a>
+                    </li>
+                    <li class="menu-item menu-item-object-page ">
+                        <a href="{% url 'website:contact' %}">Kontakt</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="panel_bottom"></div>
+    </div>
+    <div class="mask"></div>
+</div>

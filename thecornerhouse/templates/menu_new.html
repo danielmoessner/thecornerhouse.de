@@ -1,0 +1,34 @@
+{% extends "layout/sub.html" %}
+
+
+{% load static %}
+
+
+{% block sub %}
+	<div class="top_panel_title top_panel_style_8 breadcrumbs_present scheme_original">
+		<div class="top_panel_title_inner top_panel_inner_style_8 breadcrumbs_present_inner">
+			<div class="content_wrap">
+				<div class="breadcrumbs"><a class="breadcrumbs_item home" href="{% url 'website:index' %}">The Corner House</a><span class="breadcrumbs_delimiter"></span><span class="breadcrumbs_item current">Menü</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="page_content_wrap page_paddings_no">
+		<div class="content">
+			<section class="">
+				<div class="container">
+					<div class="sc_section">
+						<div class="sc_section_inner">
+							<h5 class="sc_title sc_align_center mtn03em mb03em">
+                                {{ text_snippets.vortitel }}
+							</h5>
+							<h1 class="sc_title sc_align_center margin_top_null margin_bottom_large">{{ text_snippets.titel }}</h1>
+							<a target="_blank" href="/media/{{ settings_general.karte }}" class="shop-alert-button sc_emailer_button sc_button sc_button_style_filled style_color_light margin_bottom_huge">Karte ansehen</a>
+                            <a target="_blank" href="https://thecornerhouse.lecker123.de/" class="shop-alert-button sc_emailer_button sc_button sc_button_style_filled style_color_light margin_bottom_huge">Zum Onlineshop</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+{% endblock sub %}

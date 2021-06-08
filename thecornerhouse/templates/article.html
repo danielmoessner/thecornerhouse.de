@@ -1,0 +1,110 @@
+{% extends "layout/sub.html" %}
+
+
+{% load static %}
+{% load imagefit %}
+
+{% block body_class %}page body_filled article_style_stretch scheme_original top_panel_above sidebar_show sidebar_right{% endblock body_class %}
+
+
+{% block sub %}
+
+
+	<div class="top_panel_title top_panel_style_8 breadcrumbs_present scheme_original">
+		<div class="top_panel_title_inner top_panel_inner_style_8 breadcrumbs_present_inner">
+			<div class="content_wrap">
+				<div class="breadcrumbs">
+					<a class="breadcrumbs_item home" href="{% url 'website:index' %}">The Corner House</a>
+					<span class="breadcrumbs_delimiter"></span>
+					<a class="breadcrumbs_item home" href="{% url 'website:blog' %}">Blog</a>
+					<span class="breadcrumbs_delimiter"></span>
+					<a class="breadcrumbs_item home" href="{% url 'website:article_category' article.category.slug %}">{{ article.category|safe }}</a>
+					<span class="breadcrumbs_delimiter"></span>
+					<span class="breadcrumbs_item current">{{ article.title }}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="page_content_wrap page_paddings_no">
+		<div class="content_wrap">
+			<div class="content">
+				<article class="post_item post_item_single page">
+					<div class="post_content">
+						<section class="">
+							<div class="container">
+								<article class="post_item post_item_single post">			
+									<h3 class="post_title entry-title">{{ article.title }}</h3>
+									<div class="post_info">
+										<span class="post_info_item post_info_posted">
+											<a href="#" class="post_info_date date updated">{{ article.get_date }}</a>
+										</span>
+										<span class="post_info_item post_info_posted_by vcard"><a href="{% url 'website:article_category' article.category.slug %}" class="post_info_author">{{ article.category|safe }}</a>
+										</span>
+									</div>			
+									<section class="post_featured">
+										<div class="post_thumb">
+											<img alt="{{ article.title }}" src="{{ article.image.url|resize:'800x4000' }}">
+										</div>
+									</section>
+									<section class="post_content">
+										<p>{{ article.text|linebreaks }}</p>
+									</section>
+									<section class="related_wrap related_wrap_empty"></section>
+								</article>
+							</div>
+						</section>
+					</div>
+				</article>
+			</div>
+			<div class="sidebar widget_area scheme_original">
+				<div class="sidebar_inner widget_area_inner">
+					<aside class="widget widget_categories">
+						<h2 class="widget_title">Kategorien</h2>
+						<ul>
+							<li class="">
+								<a href="{% url 'website:blog' %}">Blog</a>
+							</li>
+							<li class="">
+								<a href="{% url 'website:blog' %}">Neuigkeiten</a>
+							</li>
+							<li class="">
+								<a href="{% url 'website:blog' %}">Veranstaltungen</a>
+							</li>
+							<li class="">
+								<a href="{% url 'website:blog' %}">Biere</a>
+							</li>
+						</ul>
+					</aside><aside class="widget widget_recent_posts">
+						<h2 class="widget_title">Das Neueste</h2>
+						{% for ra in recent_articles %}
+							<article class="post_item with_thumb first">
+								<div class="widget_area_top">
+									<div class="post_thumb">
+										<img alt="{{ ra.image }}" src="{{ ra.image.url }}">
+									</div>
+									<div class="post_content">
+										<h6 class="post_title">
+										<a href="{% url 'website:article' ra.slug %}">{{ ra.get_long_title }}</a>
+										</h6>
+									</div>
+								</div>
+								<div class="widget_area_bottom">
+									<div class="post_info">
+										<span class="post_info_item post_info_posted">
+											<span class="post_info_date">{{ ra.get_date }}</span>
+										</span>
+										<span class="post_info_item post_info_posted_by">
+											<a href="{% url 'website:article_category' ra.category.slug %}" class="post_info_author">{{ ra.category|safe }}</a>
+										</span>
+									</div>
+								</div>
+							</article>
+						{% endfor %}
+					</aside>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock sub %}

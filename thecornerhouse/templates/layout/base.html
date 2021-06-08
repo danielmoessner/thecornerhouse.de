@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="de-de" class="scheme_original">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<link href="{% static 'img/icon.png' %}" rel="shortcut icon" type="image/x-icon">
+	<link href="{% static 'img/icon.png' %}" rel="apple-touch-icon">
+	<title>{{ title }}</title>
+  	<meta content="{{ description }}" name="description">
+  	<meta content="{{ title }}" property="og:title">
+  	<meta content="{{ description }}" property="og:description">
+	<link rel="stylesheet" type="text/css" media="all" href="js/vendor/essential-grid/public/assets/css/settings.css">
+	<link rel="stylesheet" type="text/css" media="all" href="js/vendor/essential-grid/public/assets/css/lightbox.css">
+	<link rel="stylesheet" type="text/css" media="all" href="js/vendor/revslider/public/assets/css/settings.css">
+	<style id="rs-plugin-settings-inline-css" type="text/css"></style>
+	<link rel="stylesheet" type="text/css" media="all" href="css/fontello/css/fontello.min.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="css/core.animation.min.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="css/theme.shortcodes.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="css/skin.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="css/responsive.css" />
+	<!-- header_code -->
+	{{ header_code|safe }}
+	<!-- end header_code -->
+    {% block header %}
+
+
+    {% endblock %}
+</head>
+<body class="{% block body_class %}page body_filled article_style_stretch scheme_original top_panel_above sidebar_hide{% endblock body_class %}">
+	{% block body %}{% endblock body %}
+	<!-- footer_code -->
+	{{ footer_code|safe }}
+	<!-- end footer_code -->
+</body>
+</html>

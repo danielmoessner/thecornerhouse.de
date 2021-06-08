@@ -1,0 +1,563 @@
+{% extends "layout/sub.html" %}
+
+
+{% load static %}
+{% load imagefit %}
+
+{% block body_class %}home page body_filled article_style_stretch scheme_original top_panel_over sidebar_hide{% endblock body_class %}
+
+{% block header %}
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'css/slider.css' %}" />
+{% endblock %}
+
+{% block start %}
+
+    <div class="body_wrap header_style_8">
+        <div class="page_wrap">
+            <div class="top_panel_fixed_wrap"></div>
+            <header class="top_panel_wrap top_panel_style_8 scheme_original cdnone" id="cheader">
+                <div class="top_panel_wrap_inner top_panel_inner_style_8 top_panel_position_over">
+                    <div class="top_panel_middle" >
+                        <div class="content_wrap">
+                            <div class="contact_info">
+                                <address class="contact_address icon-location">
+                                    <div class="custom-1352">
+                                        {{ text_snippets_general.adresse|linebreaks }}
+                                    </div>
+                                </address>
+                            </div>
+                            <div class="contact_logo">
+                                <div class="logo">
+                                    <a href="{% url 'website:index' %}">
+                                        <img src="{% static 'img/logo_normal.png' %}" class="logo_main" alt="logo" style="width: 256px">
+                                        <img src="{% static 'img/logo_normal.png' %}" class="logo_fixed" alt="logo" style="width: 128px">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="menu_pushy_wrap clearfix">
+                                <a href="#" class="menu_pushy_button">
+                                    MENÜ
+                                    <span class=" icon-menu"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+{% endblock start %}
+
+
+{% block sub %}
+
+
+
+
+
+            <section id="mainslider_1" class="slider_wrap slider_fullwide slider_engine_revo slider_alias_oldstorybar_slider1 mainslider_1" style="min-height: 100vh;">
+                <div id="rev_slider_1_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container">
+                    <div id="rev_slider_1_1" class="rev_slider fullwidthabanner" data-version="5.1">
+                        <ul>    <!-- SLIDE  -->
+                            <li data-index="rs-1" data-transition="fade" data-slotamount="default"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="images/slide1_wide-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-description="">
+                                <!-- MAIN IMAGE -->
+                                <img src="{{ settings.slider_bild1.url }}"  alt="Slider Bild 1"  width="1920" height="920" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                                <!-- LAYERS -->
+                                <!-- LAYER NR. 1 -->
+                                <div class="tp-caption   tp-resizeme"
+                                    id="slide-1-layer-1"
+                                    data-x="center" data-hoffset=""
+                                    data-y="center" data-voffset="-128"
+                                    data-width="['none','none','none','none']"
+                                    data-height="['none','none','none','none']"
+                                    data-transform_idle="o:1;"
+                                    data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
+                                    data-transform_out="opacity:0;s:300;s:300;"
+                                    data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+                                    data-start="500"
+                                    data-responsive_offset="on"
+                                    style="z-index: 5;">
+                                    <img src="{% static 'img/logo_top.png' %}" alt="" width="500" height="63" data-ww="500px" data-hh="63px" data-no-retina>
+                                </div>
+                                <!-- LAYER NR. 2 -->
+                                <div class="tp-caption BigWhiteLess   tp-resizeme"
+                                    id="slide-1-layer-2"
+                                    data-x="center" data-hoffset=""
+                                    data-y="center" data-voffset="-2"
+                                    data-width="['auto']"
+                                    data-height="['auto']"
+                                    data-transform_idle="o:1;"
+                                    data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:2;sY:2;skX:0;skY:0;opacity:0;s:300;e:Power2.easeOut;"
+                                    data-transform_out="rZ:0deg;sX:0.7;sY:0.7;opacity:0;s:300;e:Back.easeIn;s:300;e:Back.easeIn;"
+                                    data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+                                    data-mask_out="x:0;y:0;s:inherit;e:inherit;"
+                                    data-start="2080"
+                                    data-splitin="none"
+                                    data-splitout="none"
+                                    data-responsive_offset="on"
+                                    style="z-index: 6; white-space: nowrap;">
+                                    {{ text_snippets.slider_slide1_titel|linebreaks }}
+                                </div>
+                                <!-- LAYER NR. 3 -->
+                                <div class="tp-caption MediumWhite   tp-resizeme"
+                                    id="slide-1-layer-3"
+                                    data-x="center" data-hoffset=""
+                                    data-y="center" data-voffset="109"
+                                    data-width="['auto']"
+                                    data-height="['auto']"
+                                    data-transform_idle="o:1;"
+                                    data-transform_in="y:bottom;rZ:90deg;sX:2;sY:2;s:300;e:Power3.easeInOut;"
+                                    data-transform_out="opacity:0;s:300;s:300;"
+                                    data-start="2520"
+                                    data-splitin="none"
+                                    data-splitout="none"
+                                    data-responsive_offset="on"
+                                    style="z-index: 7; white-space: nowrap;">
+                                    {{ text_snippets.slider_slide1_text }}
+                                </div>
+                                <!-- LAYER NR. 4 -->
+                                <div class="tp-caption ButtonFont   tp-resizeme"
+                                    id="slide-1-layer-4"
+                                    data-x="center" data-hoffset=""
+                                    data-y="bottom" data-voffset="105"
+                                    data-width="['auto']"
+                                    data-height="['auto']"
+                                    data-transform_idle="o:1;"
+                                    data-transform_in="y:-50px;opacity:0;s:300;e:Power2.easeInOut;"
+                                    data-transform_out="opacity:0;s:300;s:300;"
+                                    data-start="2990"
+                                    data-splitin="none"
+                                    data-splitout="none"
+                                    data-responsive_offset="on"
+                                    style="z-index: 8; white-space: nowrap;">
+                                    <a href="#about" class="sc_button sc_button_square sc_button_style_filled sc_button_size_small">Mehr erfahren</a>
+                                </div>
+                            </li>
+                            <!-- SLIDE  -->
+                            <li data-index="rs-2" data-transition="fade" data-slotamount="default"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="images/slide2_wide-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-description="">
+                                <!-- MAIN IMAGE -->
+                                <img src="{{ settings.slider_bild2.url }}"  alt="Slider Bild 2"  width="1920" height="920" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                                <!-- LAYERS -->
+                                <!-- LAYER NR. 1 -->
+                                <div class="tp-caption   tp-resizeme"
+                                    id="slide-2-layer-1"
+                                    data-x="center" data-hoffset=""
+                                    data-y="center" data-voffset="-128"
+                                    data-width="['none','none','none','none']"
+                                    data-height="['none','none','none','none']"
+                                    data-transform_idle="o:1;"
+                                    data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
+                                    data-transform_out="opacity:0;s:300;s:300;"
+                                    data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+                                    data-start="500"
+                                    data-responsive_offset="on"
+                                    style="z-index: 5;">
+                                    <img src="{% static 'img/logo_top.png' %}" alt="" width="500" height="63" data-ww="500px" data-hh="63px" data-no-retina>
+                                </div>
+                                <!-- LAYER NR. 2 -->
+                                <div class="tp-caption BigWhiteLess   tp-resizeme"
+                                    id="slide-2-layer-2"
+                                    data-x="center" data-hoffset=""
+                                    data-y="center" data-voffset="-2"
+                                    data-width="['auto']"
+                                    data-height="['auto']"
+                                    data-transform_idle="o:1;"
+                                    data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:2;sY:2;skX:0;skY:0;opacity:0;s:300;e:Power2.easeOut;"
+                                    data-transform_out="rZ:0deg;sX:0.7;sY:0.7;opacity:0;s:300;e:Back.easeIn;s:300;e:Back.easeIn;"
+                                    data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+                                    data-mask_out="x:0;y:0;s:inherit;e:inherit;"
+                                    data-start="2080"
+                                    data-splitin="none"
+                                    data-splitout="none"
+                                    data-responsive_offset="on"
+                                    style="z-index: 6; white-space: nowrap;">
+                                    {{ text_snippets.slider_slide2_titel|linebreaks }}
+                                </div>
+                                <!-- LAYER NR. 3 -->
+                                <div class="tp-caption MediumWhite   tp-resizeme"
+                                    id="slide-2-layer-3"
+                                    data-x="center" data-hoffset=""
+                                    data-y="center" data-voffset="109"
+                                    data-width="['auto']"
+                                    data-height="['auto']"
+                                    data-transform_idle="o:1;"
+                                    data-transform_in="y:bottom;rZ:90deg;sX:2;sY:2;s:300;e:Power3.easeInOut;"
+                                    data-transform_out="opacity:0;s:300;s:300;"
+                                    data-start="2520"
+                                    data-splitin="none"
+                                    data-splitout="none"
+                                    data-responsive_offset="on"
+                                    style="z-index: 7; white-space: nowrap;">
+                                    {{ text_snippets.slider_slide2_text }}
+                                </div>
+                                <!-- LAYER NR. 4 -->
+                                <div class="tp-caption ButtonFont   tp-resizeme"
+                                    id="slide-2-layer-4"
+                                    data-x="center" data-hoffset=""
+                                    data-y="bottom" data-voffset="105"
+                                    data-width="['auto']"
+                                    data-height="['auto']"
+                                    data-transform_idle="o:1;"
+                                    data-transform_in="y:-50px;opacity:0;s:300;e:Power2.easeInOut;"
+                                    data-transform_out="opacity:0;s:300;s:300;"
+                                    data-start="2990"
+                                    data-splitin="none"
+                                    data-splitout="none"
+                                    data-responsive_offset="on"
+                                    style="z-index: 8; white-space: nowrap;">
+                                    <a href="#about" class="sc_button sc_button_square sc_button_style_filled sc_button_size_small">Mehr erfahren</a>
+                                </div>
+                            </li>
+                            <!-- SLIDE  -->
+                            <li data-index="rs-3" data-transition="fade" data-slotamount="default"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="images/slide3_wide-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-description="">
+                                <!-- MAIN IMAGE -->
+                                <img src="{{ settings.slider_bild3.url }}"  alt="Slider Bild 3"  width="1920" height="920" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                                <!-- LAYERS -->
+                                <!-- LAYER NR. 1 -->
+                                <div class="tp-caption   tp-resizeme"
+                                    id="slide-3-layer-1"
+                                    data-x="center" data-hoffset=""
+                                    data-y="center" data-voffset="-128"
+                                    data-width="['none','none','none','none']"
+                                    data-height="['none','none','none','none']"
+                                    data-transform_idle="o:1;"
+                                    data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
+                                    data-transform_out="opacity:0;s:300;s:300;"
+                                    data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+                                    data-start="500"
+                                    data-responsive_offset="on"
+                                    style="z-index: 5;">
+                                    <img src="{% static 'img/logo_top.png' %}" alt="" width="500" height="63" data-ww="500px" data-hh="63px" data-no-retina>
+                                </div>
+                                <!-- LAYER NR. 2 -->
+                                <div class="tp-caption BigWhiteLess   tp-resizeme"
+                                    id="slide-3-layer-2"
+                                    data-x="center" data-hoffset=""
+                                    data-y="center" data-voffset="-2"
+                                    data-width="['auto']"
+                                    data-height="['auto']"
+                                    data-transform_idle="o:1;"
+                                    data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:2;sY:2;skX:0;skY:0;opacity:0;s:300;e:Power2.easeOut;"
+                                    data-transform_out="rZ:0deg;sX:0.7;sY:0.7;opacity:0;s:300;e:Back.easeIn;s:300;e:Back.easeIn;"
+                                    data-mask_in="x:0px;y:0px;"
+                                    data-mask_out="x:0;y:0;s:inherit;e:inherit;"
+                                    data-start="2080"
+                                    data-splitin="none"
+                                    data-splitout="none"
+                                    data-responsive_offset="on"
+                                    style="z-index: 6; white-space: nowrap;">
+                                    {{ text_snippets.slider_slide3_titel|linebreaks }}
+                                </div>
+                                <!-- LAYER NR. 3 -->
+                                <div class="tp-caption MediumWhite   tp-resizeme"
+                                    id="slide-3-layer-3"
+                                    data-x="center" data-hoffset=""
+                                    data-y="center" data-voffset="109"
+                                    data-width="['auto']"
+                                    data-height="['auto']"
+                                    data-transform_idle="o:1;"
+                                    data-transform_in="y:bottom;rZ:90deg;sX:2;sY:2;s:300;e:Power3.easeInOut;"
+                                    data-transform_out="opacity:0;s:300;s:300;"
+                                    data-start="2520"
+                                    data-splitin="none"
+                                    data-splitout="none"
+                                    data-responsive_offset="on"
+                                    style="z-index: 7; white-space: nowrap;">
+                                    {{ text_snippets.slider_slide3_text }}
+                                </div>
+                                <!-- LAYER NR. 4 -->
+                                <div class="tp-caption ButtonFont   tp-resizeme"
+                                    id="slide-3-layer-4"
+                                    data-x="center" data-hoffset=""
+                                    data-y="bottom" data-voffset="105"
+                                    data-width="['auto']"
+                                    data-height="['auto']"
+                                    data-transform_idle="o:1;"
+                                    data-transform_in="y:-50px;opacity:0;s:300;e:Power2.easeInOut;"
+                                    data-transform_out="opacity:0;s:300;s:300;"
+                                    data-start="2990"
+                                    data-splitin="none"
+                                    data-splitout="none"
+                                    data-responsive_offset="on"
+                                    style="z-index: 8; white-space: nowrap;">
+                                    <a href="#about" class="sc_button sc_button_square sc_button_style_filled sc_button_size_small">Mehr erfahren</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="tp-bannertimer tp-bottom"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="shop-alert">
+                <div class="shop-alert-content">
+                    <h2 class="shop-alert-heading sc_title margin_bottom_null">{{ text_snippets.banner_text }}</h2>
+                    <div>
+                    <a target="_blank" href="/media/{{ settings_general.karte }}" class="shop-alert-button sc_emailer_button sc_button sc_button_style_filled style_color_light">Togo Karte ansehen</a>
+                    <a target="_blank" href="{{ text_snippets_general.onlineshoplink }}" class="shop-alert-button sc_emailer_button sc_button sc_button_style_filled style_color_light">Zum Onlineshop</a>
+                    </div>
+                </div>
+            </section>
+
+            <div class="top_panel_title top_panel_style_8  breadcrumbs_present scheme_original">
+                <div class="top_panel_title_inner top_panel_inner_style_8  breadcrumbs_present_inner">
+                    <div class="content_wrap">
+                        <div class="breadcrumbs"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="page_content_wrap page_paddings_no" id="about">
+                <div class="content">
+                    <article class="post_item post_item_single page">
+                        <div class="post_content">
+                            <section class="spb75rem">
+                                <div class="container">
+                                    <div class="columns_wrap sc_columns">
+                                        <div class="column-1_3 sc_column_item odd first">
+                                            <h5 class="sc_title sc_align_left margin_top_small margin_bottom_tiny">{{ text_snippets.hallo_vortitel }}</h5>
+                                            <h1 class="sc_title sc_align_left margin_top_null margin_bottom_small" style="font-size: 3.2em;">{{ text_snippets.hallo_titel }}</h1>
+                                            <h3 class="sc_title sc_title_style_1">
+                                                {{ text_snippets.hallo_fett }}
+                                            </h3>
+                                            <div class="mbn_ne">
+                                                <p>
+                                                    {{ text_snippets.hallo_text }}
+                                                </p>
+                                            </div>
+                                            <a href="{% url 'website:about' %}" class="sc_button sc_button_square sc_button_style_filled sc_button_size_small margin_top_medium">Mehr über uns</a>
+                                        </div><div class="column-1_3 sc_column_item even c-2302">
+                                            <figure class="sc_image  sc_image_shape_square margin_top_huge margin_left_small">
+                                                <img src="{% static 'img/scotch.jpg' %}" alt="" />
+                                            </figure>
+                                        </div><div class="column-1_3 sc_column_item odd">
+                                            <figure class="sc_image  sc_image_shape_square margin_top_small margin_bottom_null">
+                                                <img src="{% static 'img/opening.jpg' %}" alt="Ort" />
+                                            </figure>
+                                            <div class="sc_section margin_top_null section_style_colored bg_color_1">
+                                                <div class="sc_section_inner">
+                                                    <div class="sc_section_overlay">
+                                                        <div class="sc_section_content padding_on">
+                                                            <div class="sc_section section_style_nopaddings bg_image_10">
+                                                                <div class="sc_section_inner">
+                                                                    <div class="sc_section_overlay">
+                                                                        <div class="sc_section_content padding_on">
+                                                                            <h2 class="sc_title sc_title_style_2 white sc_align_center" style="">Öffnungs&shy;zeiten</h2>
+                                                                            <div class="sc_title sc_align_center white">
+                                                                                <p class="margin_bottom_no">
+                                                                                    {{ text_snippets_general.oeffnungszeiten|linebreaks }}
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="bg_image_11 spt72rem spb6rem" id="sortiment">
+                                <div class="container">
+                                    <div class="sc_services_wrap">
+                                        <div class="sc_services sc_services_style_services-3 sc_services_type_images">
+                                            <h6 class="sc_services_subtitle sc_item_subtitle">{{ text_snippets.artikel_vortitel }}</h6>
+                                            <h1 class="sc_services_title sc_item_title">{{ text_snippets.artikel_titel }}</h1>
+                                            <div class="sc_columns columns_wrap">
+                                                {% for category in article_categories %}<div class="column-1_3 column_padding_bottom">
+                                                        <div class="sc_services_item sc_services_item_{{ forloop.counter }} {% if forloop.first or forloop.last %}odd{% else %}even{% endif %} {% if forloop.first %}first{% endif %}">
+                                                            <div class="sc_services_item_featured post_featured">
+                                                                <div class="post_thumb">
+                                                                    <a class="hover_icon hover_icon_link" href="{% url 'website:article_category' category.slug %}">
+                                                                        <img alt="{{ category.name }}" src="{{ category.image.url|resize:'400x2000' }}">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <h2 class="sc_services_item_title">{{ category.name|safe }}</h2>
+                                                        </div>
+                                                    </div>{% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="spt52rem">
+                                <div class="container">
+                                    <div class="sc_section">
+                                        <div class="sc_section_inner">
+                                            <h5 class="sc_title sc_align_left margin_top_small margin_bottom_tiny">{{ text_snippets.menue_vortitel }}</h5>
+                                            <h1 class="sc_title sc_align_left margin_top_null margin_bottom_null">{{ text_snippets.menue_titel }}</h1>
+                                            <div class="sc_tabs sc_tabs_style_1 margin_top_large- title_position_right" data-active="0">
+                                            <div class="sc_columns columns_wrap">
+                                                <div class="sc_section column-1_2">
+                                                <a target="_blank" href="/media/{{ settings_general.karte }}" class="margin_top_huge margin_bottom_small shop-alert-button sc_emailer_button sc_button sc_button_style_filled style_color_light">Togo Karte anschauen</a>
+                                                <br>
+                                                <a target="_blank" href="https://thecornerhouse.lecker123.de/" class="shop-alert-button sc_emailer_button sc_button sc_button_style_filled style_color_light">Zum Onlineshop</a>
+                                            </div>
+                                                <div class="sc_section column-1_2">
+                                                <!-- Slideshow container -->
+                                                <div class="slideshow-container margin_top_small">
+                                                  <!-- Full-width images with number and caption text -->
+                                                  <div class="mySlides fade">
+                                                    <img src="{{ settings.menue_bild1.url }}" style="width:100%">
+                                                  </div>
+
+                                                  <div class="mySlides fade">
+                                                    <img src="{{ settings.menue_bild2.url }}" style="width:100%">
+                                                  </div>
+
+                                                  <div class="mySlides fade">
+                                                    <img src="{{ settings.menue_bild3.url }}" style="width:100%">
+                                                  </div>
+
+                                                  <!-- Next and previous buttons -->
+                                                  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                                  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                                                </div>
+                                                </div>
+                                            </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            {% if events %}
+                            <section class="bg_image_14">
+                                <div class="container">
+                                    <div class="sc_section">
+                                        <div class="sc_section_inner">
+                                            <div class="sc_section_overlay">
+                                                <div class="sc_section_content padding_on phn">
+                                                    <div class="sc_content content_wrap">
+                                                        <h6 class="sc_title sc_align_center margin_top_larges margin_bottom_tiny">{{ text_snippets.events_vortitel }}</h6>
+                                                        <h1 class="sc_title sc_align_center margin_top_null margin_bottom_large white">{{ text_snippets.events.titel }}</h1>
+                                                        <div class="sc_events_wrap">
+                                                            <div class="sc_events sc_events_style_events-2  margin_bottom_larges">
+                                                                <div class="sc_columns columns_wrap">
+                                                                    {% for event in events %}
+                                                                        <div class="sc_events_item sc_events_item_1 odd first">
+                                                                            <span class="sc_events_item_date">
+                                                                                <span class="sc_events_item_day">{{ event.get_day }}</span>
+                                                                                <span class="sc_events_item_month">{{ event.get_month }}</span>
+                                                                            </span><h3 class="sc_events_item_title">
+                                                                                <a href="{% url 'website:article' event.slug %}">{{ event.title }}</a>
+                                                                            </h3><span class="sc_events_item_time">{{ event.get_time }}</span><span class="sc_events_item_details">
+                                                                                <a class="sc_button sc_button_square sc_button_style_filled style_color_light" href="{% url 'website:article' event.slug %}">Details</a>
+                                                                            </span>
+                                                                        </div>
+                                                                    {% endfor %}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            {% endif %}
+                            <section class="spt5rem">
+                                <div class="container-fluid">
+                                    <div class="sc_section aligncenter">
+                                        <div class="sc_section_inner">
+                                            <h5 class="sc_title margin_bottom_tiny">{{ text_snippets.galerie_vortitel }}</h5>
+                                            <h1 class="sc_title margin_top_null margin_bottom_tiny-">{{ text_snippets.galerie_titel }}</h1>
+                                        </div>
+                                    </div>
+                                    <article class="myportfolio-container minimal-light" id="esg-grid-4-1-wrap">
+                                        <div id="esg-grid-4-1" class="esg-grid">
+                                            <ul>
+                                                {% for image in index_gallery %}
+                                                    <li class="filterall eg-washington-wrapper" data-cobblesw="1" data-cobblesh="1">
+                                                        <div class="esg-media-cover-wrapper">
+                                                            <div class="esg-entry-media">
+                                                                <img src="{{ image.image.url|resize:'500x2000' }}" alt="">
+                                                            </div>
+                                                            <div class="esg-entry-cover esg-fade" data-delay="0">
+                                                                <div class="esg-overlay esg-fade eg-washington-container" data-delay="0">
+                                                                </div>
+                                                                <div class="esg-center eg-washington-element-0-a esg-falldown" data-delay="0.1">
+                                                                    <a class="eg-washington-element-0 esgbox" href="{{ image.image.url }}" data-lgtitle="{{ image.image.url }}">
+                                                                        <i class="eg-icon-search"></i>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="esg-center eg-washington-element-8 esg-none esg-clear">
+                                                                </div>
+                                                                <div class="esg-center eg-washington-element-9 esg-none esg-clear">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </article>
+                                    <div class="clear"></div>
+                                </div>
+                            </section>
+                            <section class="bg_image_15 spt4rem spb365rem">
+                                <div class="container">
+                                    <div class="sc_content content_wrap">
+                                        <div class="sc_section aligncenter">
+                                            <div class="sc_section_inner">
+                                                <h2 class="sc_title sc_title_style_4 margin_top_no margin_bottom_small white">{{ text_snippets.zumkontakt_titel }}</h2>
+                                                <div class="sc_emailer sc_emailer_opened">
+                                                    <div class="sc_emailer_form">
+                                                        <a href="{% url 'website:contact' %}" class="sc_emailer_button sc_button sc_button_style_filled style_color_light">{{ text_snippets.zumkontakt_button }}</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+{% endblock sub %}
+
+
+{% block end %}
+
+            {% include "modules/footer.html" %}
+        </div>
+    </div>
+    <a href="#" class="scroll_to_top icon-up" title="Scroll to top"></a>
+    <script type='text/javascript' src={% static 'js/custom/slider.js' %}></script>
+    <script type='text/javascript' src='js/vendor/jquery-1.12.3.min.js'></script>
+{#    <script type='text/javascript' src='js/vendor/jquery-migrate.min.js'></script>#}
+    <script type="text/javascript" src="js/vendor/essential-grid/public/assets/js/lightbox.js"></script>
+    <script type="text/javascript" src="js/vendor/essential-grid/public/assets/js/jquery.themepunch.tools.min.js"></script>
+    <script type="text/javascript" src="js/vendor/essential-grid/public/assets/js/jquery.themepunch.essential.min.js"></script>
+    <script type="text/javascript" src="js/vendor/revslider/public/assets/js/jquery.themepunch.revolution.min.js"></script>
+
+{#    <script type="text/javascript" src="js/vendor/photostack/modernizr.min.js"></script>#}
+    <script type='text/javascript' src='js/custom/__main.js'></script>
+{#    <script type='text/javascript' src='js/vendor/jquery.cookie.min.js'></script>#}
+{#    <script type='text/javascript' src='js/vendor/superfish.min.js'></script>#}
+    <script type='text/javascript' src='js/custom/jquery.slidemenu.min.js'></script>
+
+{#    <script type='text/javascript' src='js/custom/core.utils.js'></script>#}
+    <script type='text/javascript' src='js/custom/core.init.js'></script>
+    <script type='text/javascript' src='js/custom/theme.init.min.js'></script>
+{#    <script type='text/javascript' src='js/custom/theme.shortcodes.js'></script>#}
+    <script type='text/javascript' src='js/vendor/core.min.js'></script>
+
+    <script type='text/javascript' src='js/vendor/widget.min.js'></script>
+    <script type='text/javascript' src='js/vendor/tabs.min.js'></script>
+{#    <script type='text/javascript' src='js/vendor/effect.min.js'></script>#}
+{#    <script type='text/javascript' src='js/vendor/effect-fade.min.js'></script>#}
+
+
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            $("#mainslider_1").css({"min-height": ""});
+            $("#cheader").removeClass("cdnone");
+        });
+    </script>
+{% endblock end %}
