@@ -136,7 +136,7 @@ class ContactView(FormMixin, WebsiteView):
                 'Ort: {location}<br>'
             ).format(**form.cleaned_data)
             from_mail = '{email}'.format(**form.cleaned_data)
-            recipient_list = ['happy@thecornerhouse.de', 'projekte@tortuga-webdesign.de']
+            recipient_list = ['happy@thecornerhouse.de']
             send_mail(subject, message, from_mail, recipient_list, html_message=message)
             return self.form_valid(form)
         else:
