@@ -65,7 +65,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(APPS_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -151,4 +151,4 @@ TINYPNG_KEY = get_secret('TINYPNG_KEY')
 
 # Imagefit
 
-IMAGEFIT_ROOT = APPS_DIR
+IMAGEFIT_ROOT = os.path.join(BASE_DIR, 'tmp')
