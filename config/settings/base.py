@@ -138,11 +138,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'tmp/media')
 
 # E-Mail
 
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.strato.de'
-EMAIL_HOST_USER = 'projekte@tortuga-webdesign.de'
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.ionos.de'
+EMAIL_HOST_USER = 'happy@thecornerhouse.de'
 EMAIL_HOST_PASSWORD = get_secret('EMAIL_PWD')
-EMAIL_PORT = 587
+EMAIL_PORT = 465
 
 # Django Image Optimizer
 
