@@ -132,7 +132,8 @@ class ContactView(FormMixin, WebsiteView):
                 'E-Mail: {email}<br>'
                 'Telefon: {phone}<br>'
                 'Anzahl Personen: {persons}<br>'
-                'Datum und Uhrzeit: {time}<br>'
+                'Datum: {date}<br>'
+                'Uhrzeit: {time}<br>'
                 'Ort: {location}<br>'
             ).format(**form.cleaned_data)
             from_mail = '{email}'.format(**form.cleaned_data)

@@ -80,27 +80,31 @@
 									<div class="sc_form_info" >
 										<div class="sc_form_item sc_form_field" style="text-align: left;">
 											<label class="required">Auf den Namen</label>
-											<input type="text" name="name" placeholder="Muster">
+											<input required type="text" name="name" placeholder="Muster">
 										</div>
 										<div class="sc_form_item sc_form_field" style="text-align: left;">
 											<label class="required">E-Mail zur Bestätigung</label>
-											<input type="email" name="email" placeholder="beispiel@email.de">
+											<input required type="email" name="email" placeholder="beispiel@email.de">
 										</div>
 										<div class="sc_form_item sc_form_field" style="text-align: left;">
 											<label class="required">Telefonnummer</label>
-											<input type="tel" name="phone" placeholder="1234 12345678">
+											<input type="tel" required name="phone" placeholder="1234 12345678">
 										</div>
 										<div class="sc_form_item sc_form_field" style="text-align: left;">
 											<label class="required">Anzahl an Personen</label>
-											<input type="number" name="persons" placeholder="1, 2, 3, 4, ..">
+											<input required type="number" name="persons" placeholder="1, 2, 3, 4, ..">
 										</div>
 										<div class="sc_form_item sc_form_field" style="text-align: left;">
 											<label class="required">Wann ist es am besten?</label>
-											<input type="text" name="time" placeholder="Datum und Uhrzeit">
+											<input required type="date" name="date" placeholder="Datum">
+                                            <input required type="time" name="time" placeholder="Uhrzeit">
 										</div>
 										<div class="sc_form_item sc_form_field" style="text-align: left;">
-											<label class="">Wo ist es am besten? (optional)</label>
-											<input type="text" name="location" placeholder="Biergarten oder Bar">
+											<label class="required">Wo ist es am besten?</label>
+                                            <select required name="location" id="" style="width: 100%;">
+                                                <option value="Biergarten">Biergarten</option>
+                                                <option value="Bar">Bar</option>
+                                            </select>
 										</div>
 										{% csrf_token %}
 									</div>

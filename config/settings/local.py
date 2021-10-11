@@ -18,3 +18,8 @@ MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware', ]
 # Other
 
 INTERNAL_IPS = ["127.0.0.1", ]
+
+
+# E-Mail
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
