@@ -125,6 +125,7 @@ class ContactView(FormMixin, WebsiteView):
                 'Datum: {date}<br>'
                 'Uhrzeit: {time}<br>'
                 'Ort: {location}<br>'
+                'Kommentar: {comment}<br>'
             ).format(**form.cleaned_data)
             from_mail = '{email}'.format(**form.cleaned_data)
             recipient_list = ['ammadi@hotmail.de', 'happy@apps.de']

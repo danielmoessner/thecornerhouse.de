@@ -1,134 +1,153 @@
 {% extends "layout/sub.html" %}
 
-
+{% load solo_tags %}
 {% load static %}
-
 
 {% block sub %}
 
-<div class="top_panel_title top_panel_style_8 breadcrumbs_present scheme_original">
-	<div class="top_panel_title_inner top_panel_inner_style_8 breadcrumbs_present_inner">
-		<div class="content_wrap">
-			<div class="breadcrumbs"><a class="breadcrumbs_item home" href="{% url 'website:index' %}">The Corner House</a><span class="breadcrumbs_delimiter"></span><span class="breadcrumbs_item current">Kontakt</span>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="page_content_wrap page_paddings_no">
-	<div class="content">
-		<article class="post_item post_item_single page">
-			<div class="post_content">
-				<section class="spt36rem">
-					<div class="container">
-						<div class="columns_wrap sc_columns">
-							<div class="column-1_3 sc_column_item sc_column_item_1 odd first">
-								<div class="sc_section section_style_colored aligncenter bg_color_1">
-									<div class="sc_section_inner">
-										<div class="sc_section_overlay">
-											<div class="sc_section_content padding_on">
-												<h2 class="sc_title sc_align_center white mb01em">Öffnungszeiten</h2>
-												<div class="mbn_ne">
-													<div class="custom-3939">
-														{{ text_snippets_general.oeffnungszeiten|linebreaks }}
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div><div class="column-1_3 sc_column_item even">
-							<div class="sc_section section_style_colored aligncenter bg_color_1">
-								<div class="sc_section_inner">
-									<div class="sc_section_overlay">
-										<div class="sc_section_content padding_on">
-											<h2 class="sc_title sc_align_center white mb01em">Adresse</h2>
-											<div class="mbn_ne">
-												<div class="custom-3939">{{ text_snippets_general.adresse|linebreaks }}</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div><div class="column-1_3 sc_column_item odd">
-							<div class="sc_section section_style_colored aligncenter bg_color_1">
-								<div class="sc_section_inner">
-									<div class="sc_section_overlay">
-										<div class="sc_section_content padding_on">
-											<h2 class="sc_title sc_align_center white mb01em">Kontakt</h2>
-											<div class="mbn_ne">
-												<p class="white">
-													{{ text_snippets_general.telefon }}<br>
-													{{ text_snippets_general.email }}
-												</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						</div>
-					</div>
-				</section>
-				<section class="spv5rem">
-					<div class="container">
-						<div class="sc_form_wrap">
-							<div class="sc_form sc_form_style_form_1 contact_form_main aligncenter mw470">
-								<h5 class="sc_form_subtitle sc_item_subtitle">{{ text_snippets.formular_vortitel }}</h5>
-								<h1 class="sc_form_title">{{ text_snippets.formular_titel }}</h1>
+    {% get_solo 'pages.Contact' as contact %}
 
-								<form method="post">
-									<div class="sc_form_info" >
-										<div class="sc_form_item sc_form_field" style="text-align: left;">
-											<label class="required">Auf den Namen</label>
-											<input required type="text" name="name" placeholder="Muster">
-										</div>
-										<div class="sc_form_item sc_form_field" style="text-align: left;">
-											<label class="required">E-Mail zur Bestätigung</label>
-											<input required type="email" name="email" placeholder="beispiel@email.de">
-										</div>
-										<div class="sc_form_item sc_form_field" style="text-align: left;">
-											<label class="required">Telefonnummer</label>
-											<input type="tel" required name="phone" placeholder="1234 12345678">
-										</div>
-										<div class="sc_form_item sc_form_field" style="text-align: left;">
-											<label class="required">Anzahl an Personen</label>
-											<input required type="number" name="persons" placeholder="1, 2, 3, 4, ..">
-										</div>
-										<div class="sc_form_item sc_form_field" style="text-align: left;">
-											<label class="required">Wann ist es am besten?</label>
-											<input required type="date" name="date" placeholder="Datum">
-                                            <input required type="time" name="time" placeholder="Uhrzeit">
-										</div>
-										<div class="sc_form_item sc_form_field" style="text-align: left;">
-											<label class="required">Wo ist es am besten?</label>
-                                            <select required name="location" id="" style="width: 100%;">
-                                                <option disabled selected value>---</option>
-                                                <option value="Biergarten">{{ text_snippets.formular_biergarten }}</option>
-                                                <option value="Bar">Bar</option>
-                                            </select>
-										</div>
-										{% csrf_token %}
-									</div>
-									<div class="sc_contact_form_button">
-										<div class="sc_form_item sc_form_button">
-											<input type="submit" name="submit" value="{{ text_snippets.formular_button_text }}" {{ text_snippets.formular_button_disabled }} class="sc_form_button"></input>
-										</div>
-									</div>
-									<div class="result sc_infobox"></div>
-								</form>
-								<p style="margin-top: 4rem">{{ text_snippets.formular_hinweis|linebreaksbr }}</p>
-							</div>
-						</div>
-					</div>
-				</section>
-				<section class="">
-					<div class="container-fluid">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2645.4905860929116!2d11.936445015660528!3d48.46630287925105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e3d86006dbbe3%3A0xb699dfeff0ec5a8c!2sThe+Corner+House!5e0!3m2!1sde!2sde!4v1564050269039!5m2!1sde!2sde" style="width: 100%;" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>							
-					</div>
-				</section>
-			</div>
-		</article>
-	</div>
-</div>
+    <div class="top_panel_title top_panel_style_8 breadcrumbs_present scheme_original">
+        <div class="top_panel_title_inner top_panel_inner_style_8 breadcrumbs_present_inner">
+            <div class="content_wrap">
+                <div class="breadcrumbs"><a class="breadcrumbs_item home" href="{% url 'website:index' %}">The Corner
+                    House</a><span class="breadcrumbs_delimiter"></span><span
+                        class="breadcrumbs_item current">Kontakt</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page_content_wrap page_paddings_no">
+        <div class="content">
+            <article class="post_item post_item_single page">
+                <div class="post_content">
+                    <section class="spt36rem">
+                        <div class="container">
+                            <div class="columns_wrap sc_columns">
+                                <div class="column-1_3 sc_column_item sc_column_item_1 odd first">
+                                    <div class="sc_section section_style_colored aligncenter bg_color_1">
+                                        <div class="sc_section_inner">
+                                            <div class="sc_section_overlay">
+                                                <div class="sc_section_content padding_on">
+                                                    <h2 class="sc_title sc_align_center white mb01em">
+                                                        Öffnungszeiten</h2>
+                                                    <div class="mbn_ne">
+                                                        <div class="custom-3939">
+                                                            {{ text_snippets_general.oeffnungszeiten|linebreaks }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><div class="column-1_3 sc_column_item even">
+                                    <div class="sc_section section_style_colored aligncenter bg_color_1">
+                                        <div class="sc_section_inner">
+                                            <div class="sc_section_overlay">
+                                                <div class="sc_section_content padding_on">
+                                                    <h2 class="sc_title sc_align_center white mb01em">Adresse</h2>
+                                                    <div class="mbn_ne">
+                                                        <div class="custom-3939">{{ text_snippets_general.adresse|linebreaks }}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><div class="column-1_3 sc_column_item odd">
+                                    <div class="sc_section section_style_colored aligncenter bg_color_1">
+                                        <div class="sc_section_inner">
+                                            <div class="sc_section_overlay">
+                                                <div class="sc_section_content padding_on">
+                                                    <h2 class="sc_title sc_align_center white mb01em">Kontakt</h2>
+                                                    <div class="mbn_ne">
+                                                        <p class="white">
+                                                            {{ text_snippets_general.telefon }}<br>
+                                                            {{ text_snippets_general.email }}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="spv5rem">
+                        <div class="container">
+                            <div class="sc_form_wrap">
+                                <div class="sc_form sc_form_style_form_1 contact_form_main aligncenter mw470">
+                                    <h1 class="sc_form_title">{{ contact.formular_titel }}</h1>
+                                    <h5 class="sc_form_subtitle sc_item_subtitle"
+                                        style="text-align: left; margin-bottom: 50px;">{{ contact.formular_hinweise|linebreaksbr }}</h5>
+
+                                    <form method="post">
+                                        <div class="sc_form_info">
+                                            <div class="sc_form_item sc_form_field" style="text-align: left;">
+                                                <label class="required">Auf den Namen</label>
+                                                <input required type="text" name="name" placeholder="Muster">
+                                            </div>
+                                            <div class="sc_form_item sc_form_field" style="text-align: left;">
+                                                <label class="required">E-Mail zur Bestätigung</label>
+                                                <input required type="email" name="email"
+                                                       placeholder="beispiel@email.de">
+                                            </div>
+                                            <div class="sc_form_item sc_form_field" style="text-align: left;">
+                                                <label class="required">Telefonnummer</label>
+                                                <input type="tel" required name="phone" placeholder="1234 12345678">
+                                            </div>
+                                            <div class="sc_form_item sc_form_field" style="text-align: left;">
+                                                <label class="required">Anzahl an Personen</label>
+                                                <input required type="number" name="persons"
+                                                       placeholder="1, 2, 3, 4, ..">
+                                            </div>
+                                            <div class="sc_form_item sc_form_field" style="text-align: left;">
+                                                <label class="required">Wann ist es am besten?</label>
+                                                <input required type="date" name="date" placeholder="Datum">
+                                                <input required type="time" name="time" placeholder="Uhrzeit">
+                                            </div>
+                                            <div class="sc_form_item sc_form_field" style="text-align: left;">
+                                                <label class="required">Wo ist es am besten?</label>
+                                                <select required name="location" id="" style="width: 100%;">
+                                                    <option disabled selected value>---</option>
+                                                    {% if contact.formular_biergarten_verfuegbar %}
+                                                        <option value="Biergarten">{{ contact.formular_biergarten }}</option>
+                                                    {% endif %}
+                                                    {% if contact.formular_bar_verfuegbar %}
+                                                        <option value="Bar">Bar</option>
+                                                    {% endif %}
+                                                </select>
+                                            </div>
+                                            <div class="sc_form_item sc_form_field" style="text-align: left;">
+                                                <label for="id_comment" class="">Kommentar (optional)</label>
+                                                <input type="text" id="id_comment" name="comment" />
+                                            </div>
+                                            {% csrf_token %}
+                                        </div>
+                                        <div class="sc_contact_form_button">
+                                            <div class="sc_form_item sc_form_button">
+                                                <input type="submit" name="submit"
+                                                       value="{{ contact.formular_button }}"
+                                                       class="sc_form_button"/>
+                                            </div>
+                                        </div>
+                                        <div class="result sc_infobox"></div>
+                                    </form>
+                                    <p style="margin-top: 4rem">{{ contact.formular_hinweis|linebreaksbr }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="">
+                        <div class="container-fluid">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2645.4905860929116!2d11.936445015660528!3d48.46630287925105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e3d86006dbbe3%3A0xb699dfeff0ec5a8c!2sThe+Corner+House!5e0!3m2!1sde!2sde!4v1564050269039!5m2!1sde!2sde"
+                                    style="width: 100%;" height="450" frameborder="0" style="border:0"
+                                    allowfullscreen></iframe>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </div>
+    </div>
 
 {% endblock sub %}

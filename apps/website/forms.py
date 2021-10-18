@@ -9,3 +9,4 @@ class ContactForm(forms.Form):
     email = forms.CharField(required=False)
     phone = forms.CharField(required=False)
     location = forms.CharField(required=False)
+    comment = forms.CharField(required=False)
