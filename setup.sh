@@ -13,8 +13,8 @@ snap install --classic certbot
 # create venv
 python3 -m venv tmp/venv
 # setup apache configs
-ln -s /home/apps.de/apache.conf /etc/apache2/sites-available/apps.de.conf
-certbot certonly --apache -d apps.de --register-unsafely-without-email
+ln -s /home/thecornerhouse.de/apache.conf /etc/apache2/sites-available/thecornerhouse.de.conf
+certbot certonly --apache -d thecornerhouse.de --register-unsafely-without-email
 a2enmod ssl
 a2enmod rewrite
-a2ensite apps.de.conf
+a2ensite thecornerhouse.de.conf
