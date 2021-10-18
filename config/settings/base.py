@@ -43,8 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'thecornerhouse.website.apps.WebsiteConfig',
-    'thecornerhouse.content.apps.ContentConfig',
+    'apps.website.apps.WebsiteConfig',
+    'apps.content.apps.ContentConfig',
     'image_optimizer',
     'imagefit',
 ]
@@ -125,7 +125,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(APPS_DIR, 'files/app'),
+    os.path.join(BASE_DIR, 'files/app'),
 ]
 
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
@@ -140,7 +140,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'tmp/media')
 
 EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.ionos.de'
-EMAIL_HOST_USER = 'happy@thecornerhouse.de'
+EMAIL_HOST_USER = 'happy@apps.de'
 EMAIL_HOST_PASSWORD = get_secret('EMAIL_PWD')
 EMAIL_PORT = 465
 

@@ -1,5 +1,5 @@
 from django.urls import re_path
-from thecornerhouse.content import views
+from apps.content import views
 
 app_name = "core"
 urlpatterns = [

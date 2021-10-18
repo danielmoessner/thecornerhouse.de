@@ -1,22 +1,12 @@
 from django.views.generic.edit import FormMixin
 from django.views.generic import TemplateView
+from apps.content.models import ArticleCategory, TextSnippet, GalleryImage, Setting, Article, Member
 from django.shortcuts import get_object_or_404
 from django.core.mail import send_mail
 from django.urls import reverse_lazy
-
-from thecornerhouse.content.models import ArticleCategory, TextSnippet
-from thecornerhouse.content.models import MenuCategory
-from thecornerhouse.content.models import GalleryImage
-from thecornerhouse.content.models import Setting
-from thecornerhouse.content.models import Article
-from thecornerhouse.content.models import Member
-from .models import StaticPage
-from .models import CustomCode
-from .models import Seo
+from datetime import timedelta, datetime
+from .models import StaticPage, CustomCode, Seo
 from .forms import ContactForm
-
-from datetime import timedelta
-from datetime import datetime
 
 
 class WebsiteView(TemplateView):
@@ -137,7 +127,7 @@ class ContactView(FormMixin, WebsiteView):
                 'Ort: {location}<br>'
             ).format(**form.cleaned_data)
             from_mail = '{email}'.format(**form.cleaned_data)
-            recipient_list = ['ammadi@hotmail.de', 'happy@thecornerhouse.de']
+            recipient_list = ['ammadi@hotmail.de', 'happy@apps.de']
             send_mail(subject, message, from_mail, recipient_list, html_message=message)
             return self.form_valid(form)
         else:

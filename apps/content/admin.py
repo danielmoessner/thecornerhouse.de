@@ -1,5 +1,5 @@
-from thecornerhouse.content.models import MenuCategory, Setting, Member, TextSnippet, GalleryImage, ArticleCategory
-from thecornerhouse.content.models import Article
+from apps.content.models import Setting, TextSnippet, GalleryImage, ArticleCategory
+from apps.content.models import Article
 from django.contrib.auth.models import Group
 from django.contrib import admin
 from django.conf import settings

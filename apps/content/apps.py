@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class ContentConfig(AppConfig):
-    name = 'thecornerhouse.content'
+    name = 'apps.content'
     verbose_name = 'Inhalt'

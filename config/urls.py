@@ -21,8 +21,8 @@ from django.urls import path
 
 
 urlpatterns = [
-    path('', include('thecornerhouse.content.urls')),
-    path('', include('thecornerhouse.website.urls')),
+    path('', include('apps.content.urls')),
+    path('', include('apps.website.urls')),
     path('imagefit/', include('imagefit.urls')),
     path('admin/', admin.site.urls),
 ]
