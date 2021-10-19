@@ -129,7 +129,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'tmp/media')
 
 EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.ionos.de'
-EMAIL_HOST_USER = 'happy@apps.de'
+EMAIL_HOST_USER = 'happy@thecornerhouse.de'
 EMAIL_HOST_PASSWORD = get_secret('EMAIL_PWD')
 EMAIL_PORT = 465
 

@@ -128,7 +128,7 @@ class ContactView(FormMixin, WebsiteView):
                 'Kommentar: {comment}<br>'
             ).format(**form.cleaned_data)
             from_mail = '{email}'.format(**form.cleaned_data)
-            recipient_list = ['ammadi@hotmail.de', 'happy@apps.de']
+            recipient_list = ['ammadi@hotmail.de', 'happy@thecornerhouse.de']
             send_mail(subject, message, from_mail, recipient_list, html_message=message)
             return self.form_valid(form)
         else:
