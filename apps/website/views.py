@@ -146,55 +146,13 @@ class ThanksView(WebsiteView):
 
 
 class MenuView(WebsiteView):
-    template_name = 'menu_new.html'
+    template_name = 'menu.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['article_categories'] = ArticleCategory.objects.filter(featured=True)
         context['text_snippets'] = TextSnippet.get_dict(page='menue')
-        # context['menu'] = {}
-        # for category in MenuCategory.objects.all().prefetch_related('menu_entries'):
-        #     category_data = []
-        #     for menu_entry in category.menu_entries.all():
-        #         ppq_data = {}
-        #         for ppq in menu_entry.ppqs.order_by('unit', '-content', 'price'):
-        #             ppq_data = {'content': ppq.content, 'unit': ppq.unit, 'price': ppq.price}
-        #             break
-        #         category_data.append({'name': menu_entry.name, 'description': menu_entry.description, 'ppq': ppq_data})
-        #     category_half = int((category.menu_entries.count() + 1) / 2)
-        #     context['menu'][category.name] = {'content': [category_data[:category_half], category_data[category_half:]],
-        #                                       'img': category.image.url}
-
         return context
-
-
-# class MenuListView(WebsiteView):
-#     template_name = 'menu_list.html'
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#
-#         context['menu'] = {}
-#         for category1 in MenuCategory1.objects.all():
-#             category1_data = {}
-#             for category2 in category1.categories.all():
-#                 category2_data = []
-#                 for menu_entry in category2.menu_entries.all().prefetch_related('ppqs', 'additives'):
-#                     additive_data = []
-#                     for additive in menu_entry.additives.order_by('number'):
-#                         additive_data.append(additive.number)
-#                     ppq_data = []
-#                     for ppq in menu_entry.ppqs.order_by('unit', 'content', 'price'):
-#                         ppq_data.append({'content': ppq.content, 'unit': ppq.unit, 'price': str(ppq.price) + ' €'})
-#                     if len(ppq_data) == 1:
-#                         ppq_data.insert(0, {'content': '', 'unit': '', 'price': ''})
-#                     category2_data.append({'name': menu_entry.name, 'description': menu_entry.description,
-#                                           'additives': additive_data, 'ppqs': ppq_data})
-#                 category1_data[category2.name] = category2_data
-#             context['menu'][category1.name] = category1_data
-#
-#         context['additives'] = MenuAdditive.objects.all()
-#         return context
 
 
 class BlogView(WebsiteView):
@@ -241,4 +199,12 @@ class AboutView(WebsiteView):
         context['article_categories'] = ArticleCategory.objects.filter(featured=True)
         context['members'] = Member.objects.all()
         context['text_snippets'] = TextSnippet.get_dict(page='ueber-uns')
+        return context
+
+
+class JobsView(WebsiteView):
+    template_name = 'jobs.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         return context
