@@ -1,20 +1,11 @@
 {% extends "layout/base.html" %}
 
-
 {% load static %}
-
-{% block header %}
-    {#    <link rel="stylesheet" type="text/css" media="all" href="css/slider.css" />#}
-{% endblock %}
 
 {% block body %}
 
-
     {% block start %}
 
-        <div class="body_wrap header_style_8">
-        <div class="page_wrap">
-        <div class="top_panel_fixed_wrap"></div>
         <header class="top_panel_wrap top_panel_style_8 scheme_original cdnone">
             <div class="top_panel_wrap_inner top_panel_inner_style_8 top_panel_position_above">
                 <div class="top_panel_middle">
@@ -49,52 +40,41 @@
 
     {% endblock start %}
 
+    {% include "modules/navigation.html" %}
 
-{% include "modules/navigation.html" %}
+    {% block sub %}{% endblock sub %}
 
-
-{% block sub %}{% endblock sub %}
-
-
-{% block end %}
-
-    <footer class="contacts_wrap scheme_original">
-        <div class="contacts_wrap_inner" style="padding: 0;"></div>
-    </footer>
-    {% include "modules/footer.html" %}
-    </div>
-    </div>
-    <a href="#" class="scroll_to_top icon-up" title="Scroll to top"></a>
-    <script type='text/javascript' src="{% static 'js/vendor/jquery-1.12.3.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'js/vendor/jquery-migrate.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/vendor/essential-grid/public/assets/js/lightbox.js' %}"></script>
-    <script type="text/javascript"
-            src="{% static 'js/vendor/essential-grid/public/assets/js/jquery.themepunch.tools.min.js' %}"></script>
-    <script type="text/javascript"
-            src="{% static 'js/vendor/essential-grid/public/assets/js/jquery.themepunch.essential.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'js/custom/__main.js' %}"></script>
-    <script type='text/javascript' src="{% static 'js/vendor/jquery.cookie.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'js/vendor/superfish.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'js/custom/jquery.slidemenu.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'js/custom/core.utils.js' %}"></script>
-    <script type='text/javascript' src="{% static 'js/custom/core.init.js' %}"></script>
-    <script type='text/javascript' src="{% static 'js/custom/theme.init.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'js/custom/theme.shortcodes.js' %}"></script>
-    <script type='text/javascript' src="{% static 'js/vendor/core.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'js/vendor/widget.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'js/vendor/tabs.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'js/vendor/effect.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'js/vendor/effect-fade.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/vendor/isotope.pkgd.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/vendor/prettyphoto/jquery.prettyPhoto.min.js' %}"></script>
-
-    <script type="text/javascript">
+    {% block end %}
+        {% include "modules/footer.html" %}
+        <a href="#" class="scroll_to_top icon-up" title="Scroll to top"></a>
+        <script type='text/javascript' src="{% static 'js/vendor/jquery-1.12.3.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/vendor/jquery-migrate.min.js' %}"></script>
+        <script type="text/javascript"
+                src="{% static 'js/vendor/essential-grid/public/assets/js/lightbox.js' %}"></script>
+        <script type="text/javascript"
+                src="{% static 'js/vendor/essential-grid/public/assets/js/jquery.themepunch.tools.min.js' %}"></script>
+        <script type="text/javascript"
+                src="{% static 'js/vendor/essential-grid/public/assets/js/jquery.themepunch.essential.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/custom/__main.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/vendor/jquery.cookie.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/vendor/superfish.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/custom/jquery.slidemenu.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/custom/core.utils.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/custom/core.init.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/custom/theme.init.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/custom/theme.shortcodes.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/vendor/core.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/vendor/widget.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/vendor/tabs.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/vendor/effect.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'js/vendor/effect-fade.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/vendor/isotope.pkgd.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/vendor/prettyphoto/jquery.prettyPhoto.min.js' %}"></script>
+        <script type="text/javascript">
             $(function() {
                 $("header").removeClass("cdnone");
             });
-
-    </script>
-{% endblock end %}
-
+        </script>
+    {% endblock end %}
 
 {% endblock body %}

@@ -41,20 +41,20 @@ class Setting(models.Model):
         super().save(*args, **kwargs)
 
 
-class Member(models.Model):
-    name = models.CharField(max_length=200, verbose_name='Name')
+class Job(models.Model):
     title = models.CharField(max_length=200, verbose_name='Titel')
-    image = models.ImageField(upload_to='members/', verbose_name='Bild')
-    order = models.PositiveSmallIntegerField(default=100, verbose_name='Sortierung',
-                                             help_text='Je höher, desto weiter oben.')
+    date = models.DateField(verbose_name='Datum', help_text='Beispiel Datum: 19.07.2019')
+    description = models.TextField(verbose_name='Beschreibung')
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name = 'Teammitglied'
-        verbose_name_plural = 'Teammitglieder'
-        ordering = ['-order']
+        verbose_name = 'Job'
+        verbose_name_plural = 'Jobs'
+        ordering = ['-date']
 
     def __str__(self):
-        return str(self.name)
+        return '{}'.format(self.title)
 
 
 class ArticleCategory(models.Model):
@@ -82,7 +82,7 @@ class Article(models.Model):
                                 help_text='Beispiel Datum: 19.07.2019<br>'
                                           'Beispiel Uhrzeit: 14:49:00')
     text = models.TextField(blank=True, verbose_name='Text')
-    slug = models.SlugField(unique=True, help_text='Wie soll die Kategorie in der URL-Leiste erscheinen oder heißen?')
+    slug = models.SlugField(unique=True, help_text='Wie soll der Artikel in der URL-Leiste erscheinen oder heißen?')
 
     class Meta:
         verbose_name = 'Artikel'
@@ -142,90 +142,6 @@ class Article(models.Model):
 
     def get_intro(self):
         return self.text[:min(len(self.text), 140)] + '..'
-
-
-class MenuCategory1(models.Model):
-    name = models.CharField(max_length=200, verbose_name='Name')
-    order = models.PositiveSmallIntegerField(default=100, verbose_name='Sortierung',
-                                             help_text='Je höher, desto weiter oben.')
-
-    class Meta:
-        verbose_name = 'Speisekarte Kategorie 1'
-        verbose_name_plural = 'Speisekarte Kategorien 1'
-        ordering = ['-order', 'name']
-
-    def __str__(self):
-        text = '{} - {}'.format(self.order, self.name)
-        return text
-
-
-class MenuCategory(models.Model):
-    category1 = models.ForeignKey(MenuCategory1, on_delete=models.SET_NULL, null=True, verbose_name='Kategorie 1',
-                                  related_name='categories')
-    name = models.CharField(max_length=200, verbose_name='Name')
-    featured_on_index = models.BooleanField(default=False, verbose_name='Auf der Startseite angezeigt')
-    order = models.PositiveSmallIntegerField(default=100, verbose_name='Sortierung',
-                                             help_text='Je höher, desto weiter oben')
-    image = models.ImageField(upload_to='menu_category/', blank=True, null=True, verbose_name='Bild')
-
-    class Meta:
-        verbose_name = 'Speisekarte Kategorie 2'
-        verbose_name_plural = 'Speisekarte Kategorien 2'
-        ordering = ['-order', 'name']
-
-    def __str__(self):
-        text = '{} - {}'.format(self.order, self.name)
-        return text
-
-
-class MenuPPQ(models.Model):
-    UNITS = (('NONE', 'Keine'), ('L', 'Liter'), ('ML', 'Milliliter'), ('CL', 'Centiliter'))
-    content = models.DecimalField(decimal_places=2, max_digits=5, verbose_name='Inhalt', default=1)
-    unit = models.CharField(choices=UNITS, max_length=20, default='NONE', verbose_name='Einheit')
-    price = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Preis', default=0)
-
-    class Meta:
-        verbose_name = 'Speisekarte Preise'
-        verbose_name_plural = 'Speisekarte Preise'
-        ordering = ['unit', 'content', 'price']
-
-    def __str__(self):
-        if self.unit == 'NONE':
-            text = '{}€'.format(self.price)
-        else:
-            text = '{}{} {}€'.format(self.content, str(self.unit).lower(), self.price)
-        return text
-
-
-class MenuAdditive(models.Model):
-    number = models.PositiveSmallIntegerField(unique=True, verbose_name='Nummer')
-    description = models.CharField(max_length=200, verbose_name='Beschreibung')
-
-    class Meta:
-        verbose_name = 'Speisekarte Zusatzstoff'
-        verbose_name_plural = 'Speisekarte Zusatzstoffe'
-        ordering = ['number']
-
-    def __str__(self):
-        text = '{} {}'.format(self.number, self.description)
-        return text
-
-
-class MenuEntry(models.Model):
-    name = models.CharField(max_length=200, verbose_name='Name')
-    category = models.ForeignKey(MenuCategory, on_delete=models.SET_NULL, null=True, verbose_name='Kategorie',
-                                 related_name='menu_entries')
-    description = models.TextField(blank=True, verbose_name='Beschreibung')
-    ppqs = models.ManyToManyField(MenuPPQ, related_name='menu_entries', blank=True)
-    additives = models.ManyToManyField(MenuAdditive, related_name='menu_entries', blank=True)
-
-    class Meta:
-        verbose_name = 'Speisekarte Eintrag'
-        verbose_name_plural = 'Speisekarte Einträge'
-        ordering = ['name']
-
-    def __str__(self):
-        return str(self.name)
 
 
 class GalleryImage(models.Model):

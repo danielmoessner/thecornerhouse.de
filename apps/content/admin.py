@@ -1,4 +1,4 @@
-from apps.content.models import Setting, TextSnippet, GalleryImage, ArticleCategory
+from apps.content.models import Setting, TextSnippet, GalleryImage, ArticleCategory, Job
 from apps.content.models import Article
 from django.contrib.auth.models import Group
 from django.contrib import admin
@@ -42,3 +42,4 @@ admin.site.register(ArticleCategory)
 admin.site.register(GalleryImage)
 admin.site.register(Setting)
 admin.site.register(Article)
+admin.site.register(Job)

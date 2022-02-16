@@ -26,3 +26,25 @@ class Contact(SingletonModel):
 
     class Meta:
         verbose_name = "Kontakt"
+
+
+class Jobs(SingletonModel):
+    start_pre = models.CharField(verbose_name='Start / Vortitel', default='Jobs', max_length=200)
+    start_title = models.CharField(verbose_name='Start / Titel', default='Wir suchen', max_length=200)
+    jobs_location = models.CharField(verbose_name='Jobs / Ort', default='The Corner House - Moosburg', max_length=200)
+    jobs_button = models.CharField(verbose_name='Jobs / Button', default='Informationen anfordern', max_length=200)
+    jobs_empty = models.TextField(verbose_name='Jobs / Keine Jobs ausgeschrieben')
+    form_title = models.CharField(verbose_name='Formular / Titel', default='Vorstellungsgespräch anfordern',
+                                  max_length=200)
+    form_button = models.CharField(verbose_name='Formular / Button', default='Absenden', max_length=200)
+    thanks_pre = models.CharField(verbose_name='Danke / Vortitel', default='Ihre Anfrage ist bei uns eingegangen',
+                                  max_length=200)
+    thanks_title = models.CharField(verbose_name='Danke / Titel', default='Vielen Dank', max_length=200)
+    thanks_text = models.TextField(verbose_name='Danke / Text',
+                                   default='Wir werden uns schnellstmöglich bei Ihnen melden.')
+
+    def __str__(self):
+        return "Jobs"
+
+    class Meta:
+        verbose_name = "Jobs"

@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* background */
+body {
+    background-position-x: left;
+    background-position-y: top;
+    background-size: initial;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+}
+
+/* form */
+.djangoform p {
+    @apply mb-5;
+}
+
+.djangoform label {
+    @apply block mb-1;
+}
+
+.djangoform input, .djangoform select, .djangoform textarea {
+    @apply bg-white px-4 box-border transition w-full border-gray-200 text-gray-700 block outline-none py-2 border-[6px] border-solid text-lg leading-relaxed;
+    @apply hover:border-gray-400;
+    @apply focus:border-gold;
+}
+
+.djangoform input {
+    @apply appearance-none;
+}
+
+.djangoform select {
+    @apply appearance-none;
+    background: url("/static/images/select.png") no-repeat 97% 17px, linear-gradient(to right, white, white);
+}
+
+.djangoform textarea {
+
+}
+
+.djangoform .helptext {
+
+}
+
+.djangoform .errorlist {
+    @apply -mt-4 mb-5 pl-4;
+}
+
+.djangoform .errorlist li {
+    @apply text-red-600;
+}
+
+.djangoform .errorlist li::before {
+    content: '';
+}

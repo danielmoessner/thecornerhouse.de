@@ -1,10 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "layout/sub.html" %}
 
-</body>
-</html>
+{% load static %}
+{% load solo_tags %}
+
+{% block sub %}
+
+    {% get_solo 'pages.Jobs' as page %}
+
+    {% include 'symbols/breadcrumbs.html' with page='Jobs' %}
+
+    <section class="page_content_wrap page_paddings_no">
+        <div class="content">
+            <div class="post_item post_item_single page">
+                <div class="post_content">
+                    <div class="spb5rem">
+                        <div class="container">
+                            <div class="sc_team_wrap">
+                                <div class="sc_team sc_team_style_team-3 sc_call_to_action">
+                                    {% include 'symbols/pre.html' with pre=page.start_pre %}
+                                    <div class="mt-4">
+                                        {% include 'symbols/h1.html' with title=page.start_title %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+
+            <div class="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2">
+                {% for job in jobs %}
+                    <article>
+                        <h2 class="text-2xl !text-gray-900">{{ job.title }}</h2>
+                        <div class="text-xs font-bold uppercase font-sans text-gold tracking-wide">{{ job.date }}</div>
+                        <div class="text-gold text-right mb-5">{{ page.jobs_location }}</div>
+                        <div class="prose">
+                            {{ job.description|linebreaks }}
+                        </div>
+                        <a href='#jobs-formular'
+                           onclick="console.log(document.querySelector('#id_job').value={{ job.pk }})"
+                           class="sc_button sc_button_square sc_button_style_filled sc_button_size_medium"
+                        >
+                            {{ page.jobs_button }}
+                        </a>
+                    </article>
+                {% empty %}
+                    <div class="">{{ page.jobs_empty }}</div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="pt-64" id="jobs-formular">
+        <div class="container">
+            <div class="mb-10">
+                {% include 'symbols/pre.html' with pre=page.form_title %}
+            </div>
+            <div class="max-w-xl mx-auto">
+                <form method='post' action="" class="djangoform" novalidate>
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    <button type="submit">{{ page.form_button }}</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    {% include 'symbols/gallery.html' %}
+
+{% endblock sub %}

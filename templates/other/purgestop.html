@@ -1,0 +1,45 @@
+<form method="post" _lpchecked="1" class="djangoform">
+    <div class="sc_form_info">
+        <div class="sc_form_item sc_form_field" style="text-align: left;">
+            <label class="required">Auf den Namen</label>
+            <input required="" type="text" name="name" placeholder="Muster"
+                   style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+        </div>
+        <div class="sc_form_item sc_form_field" style="text-align: left;">
+            <label class="required">E-Mail zur Bestätigung</label>
+            <input required="" type="email" name="email" placeholder="beispiel@email.de">
+        </div>
+        <div class="sc_form_item sc_form_field" style="text-align: left;">
+            <label class="required">Telefonnummer</label>
+            <input type="tel" required="" name="phone" placeholder="1234 12345678">
+        </div>
+        <div class="sc_form_item sc_form_field" style="text-align: left;">
+            <label class="required">Anzahl an Personen</label>
+            <input required="" type="number" name="persons" placeholder="1, 2, 3, 4, ..">
+        </div>
+        <div class="sc_form_item sc_form_field" style="text-align: left;">
+            <label class="required">Wann ist es am besten?</label>
+            <input required="" type="date" name="date" placeholder="Datum">
+            <input required="" type="time" name="time" placeholder="Uhrzeit">
+        </div>
+        <div class="sc_form_item sc_form_field" style="text-align: left;">
+            <label class="required">Wo ist es am besten?</label>
+            <select required="" name="location" id="" style="width: 100%;">
+                <option disabled="" selected="" value="">---</option>
+                <option value="Biergarten">Winterbiergarten</option>
+            </select>
+        </div>
+        <div class="sc_form_item sc_form_field" style="text-align: left;">
+            <label for="id_comment" class="">Kommentar (optional)</label>
+            <input type="text" id="id_comment" name="comment">
+        </div>
+        <input type="hidden" name="csrfmiddlewaretoken"
+               value="BIjFyq31AKSslijWOy34DuCVWiGlCzpEcGZ48wQ8Zq6dAdvxNTPNhvhMXKRD5BY9">
+    </div>
+    <div class="sc_contact_form_button">
+        <div class="sc_form_item sc_form_button">
+            <input type="submit" name="submit" value="Jetzt reservieren" class="sc_form_button">
+        </div>
+    </div>
+    <div class="result sc_infobox"></div>
+</form>

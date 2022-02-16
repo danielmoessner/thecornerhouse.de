@@ -45,7 +45,7 @@ class StaticPage(models.Model):
     shown_in_navigation = models.BooleanField(verbose_name='Angezeigt in der Navigation',
                                               help_text='In der Navigation anzeigen?')
     html_activated = models.BooleanField(verbose_name='Html Code aktiviert',
-                                        help_text='Soll der Inhalt als Html Code gerendert werden?')
+                                         help_text='Soll der Inhalt als Html Code gerendert werden?')
     content = models.TextField(verbose_name='Inhalt')
 
     class Meta:

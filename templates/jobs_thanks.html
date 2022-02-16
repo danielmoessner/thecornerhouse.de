@@ -1,0 +1,27 @@
+{% extends "layout/sub.html" %}
+
+{% load solo_tags %}
+
+{% block sub %}
+
+    {% get_solo 'pages.Jobs' as page %}
+
+    {% include 'symbols/breadcrumbs.html' with page='Jobs' %}
+
+    <section class="pt-32">
+        <div class="container">
+            <div class="mx-auto max-w-xl">
+                <div class="mb-4">
+                    {% include 'symbols/pre.html' with pre=page.thanks_pre %}
+                </div>
+                {% include 'symbols/h1.html' with title=page.thanks_title %}
+                <p class="text-lg mt-8">
+                    {{ page.thanks_text|linebreaksbr }}
+                </p>
+            </div>
+        </div>
+    </section>
+
+    {% include 'symbols/gallery.html' %}
+
+{% endblock sub %}

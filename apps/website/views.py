@@ -1,12 +1,13 @@
+from django.http import HttpResponseRedirect
 from django.views.generic.edit import FormMixin
 from django.views.generic import TemplateView
-from apps.content.models import ArticleCategory, TextSnippet, GalleryImage, Setting, Article, Member
+from apps.content.models import ArticleCategory, TextSnippet, GalleryImage, Setting, Article, Job
 from django.shortcuts import get_object_or_404
 from django.core.mail import send_mail
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from datetime import timedelta, datetime
 from .models import StaticPage, CustomCode, Seo
-from .forms import ContactForm
+from .forms import ContactForm, JobForm
 
 
 class WebsiteView(TemplateView):
@@ -135,8 +136,8 @@ class ContactView(FormMixin, WebsiteView):
             return self.form_invalid(form)
 
 
-class ThanksView(WebsiteView):
-    template_name = 'thanks.html'
+class ContactThanksView(WebsiteView):
+    template_name = 'contact_thanks.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -197,14 +198,38 @@ class AboutView(WebsiteView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['article_categories'] = ArticleCategory.objects.filter(featured=True)
-        context['members'] = Member.objects.all()
         context['text_snippets'] = TextSnippet.get_dict(page='ueber-uns')
         return context
 
 
-class JobsView(WebsiteView):
+class JobsView(FormMixin, WebsiteView):
     template_name = 'jobs.html'
+    form_class = JobForm
+    success_url = reverse_lazy('website:jobs_mail_sent')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['jobs'] = Job.objects.all()
         return context
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            subject = 'Job'
+            message = (
+                'Job: {job}<br>'
+                'Name: {name}<br>'
+                'E-Mail: {email}<br>'
+                'Telefon: {phone}<br>'
+                'Inhalt: <br>{content}<br>'
+            ).format(**form.cleaned_data)
+            from_mail = '{email}'.format(**form.cleaned_data)
+            recipient_list = ['ammadi@hotmail.de', 'happy@thecornerhouse.de']
+            send_mail(subject, message, from_mail, recipient_list, html_message=message)
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+
+class JobsThanksView(WebsiteView):
+    template_name = 'jobs_thanks.html'

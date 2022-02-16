@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "name": "thecornerhouse.de",
+  "version": "0.0.0",
+  "description": "The website of TheCornerHouse in Moosburg.",
+  "author": "Daniel Mössner",
+  "license": "ISC",
+  "homepage": "https://github.com/danielmoessner/thecornerhouse.de#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielmoessner/thecornerhouse.de.git"
+  },
+  "scripts": {
+    "css:watch": "tailwindcss -i ./static/css/tailwind.css -o ./static/css/output.css --watch",
+    "css:build": "tailwindcss -i ./static/css/tailwind.css -o ./static/css/output.css"
+  },
+  "dependencies": {
+    "@tailwindcss/forms": "^0.4.0",
+    "tailwindcss": "^3.0.23"
+  }
+}
