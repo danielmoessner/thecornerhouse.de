@@ -1,7 +1,6 @@
 from apps.content.models import Job
-from django import forms
-
 from apps.pages.models import Contact
+from django import forms
 
 
 class ContactForm(forms.Form):
@@ -38,7 +37,7 @@ class ContactForm(forms.Form):
 
 
 class JobForm(forms.Form):
-    job = forms.ModelChoiceField(label='Job', queryset=Job.objects.all())
+    job = forms.ModelChoiceField(label='Job', queryset=Job.objects.all(), required=False)
     name = forms.CharField(label='Name')
     email = forms.EmailField(label='E-Mail')
     phone = forms.CharField(label='Telefonnummer')
