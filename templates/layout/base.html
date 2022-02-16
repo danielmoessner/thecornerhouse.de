@@ -11,16 +11,16 @@
   	<meta content="{{ description }}" name="description">
   	<meta content="{{ title }}" property="og:title">
   	<meta content="{{ description }}" property="og:description">
-	<link rel="stylesheet" type="text/css" media="all" href="js/vendor/essential-grid/public/assets/css/settings.css">
-	<link rel="stylesheet" type="text/css" media="all" href="js/vendor/essential-grid/public/assets/css/lightbox.css">
-	<link rel="stylesheet" type="text/css" media="all" href="js/vendor/revslider/public/assets/css/settings.css">
-	<style id="rs-plugin-settings-inline-css" type="text/css"></style>
-	<link rel="stylesheet" type="text/css" media="all" href="css/fontello/css/fontello.min.css" />
-	<link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
-	<link rel="stylesheet" type="text/css" media="all" href="css/core.animation.min.css" />
-	<link rel="stylesheet" type="text/css" media="all" href="css/theme.shortcodes.css" />
-	<link rel="stylesheet" type="text/css" media="all" href="css/skin.css" />
-	<link rel="stylesheet" type="text/css" media="all" href="css/responsive.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="{% static 'js/vendor/essential-grid/public/assets/css/settings.css' %}">
+	<link rel="stylesheet" type="text/css" media="all" href="{% static 'js/vendor/essential-grid/public/assets/css/lightbox.css' %}">
+	<link rel="stylesheet" type="text/css" media="all" href="{% static 'js/vendor/revslider/public/assets/css/settings.css' %}">
+{#	<style id="rs-plugin-settings-inline-css" type="text/css"></style>#}
+	<link rel="stylesheet" type="text/css" media="all" href="{% static 'css/fontello/css/fontello.min.css' %}" />
+	<link rel="stylesheet" type="text/css" media="all" href="{% static 'css/style.css' %}" />
+	<link rel="stylesheet" type="text/css" media="all" href="{% static 'css/core.animation.min.css' %}" />
+	<link rel="stylesheet" type="text/css" media="all" href="{% static 'css/theme.shortcodes.css' %}" />
+	<link rel="stylesheet" type="text/css" media="all" href="{% static 'css/skin.css' %}" />
+	<link rel="stylesheet" type="text/css" media="all" href="{% static 'css/responsive.css' %}" />
 	<!-- header_code -->
 	{{ header_code|safe }}
 	<!-- end header_code -->

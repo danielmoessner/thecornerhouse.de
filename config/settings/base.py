@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'apps.content.apps.ContentConfig',
     'apps.pages.apps.PagesConfig',
     'image_optimizer',
-    'imagefit',
 ]
 
 MIDDLEWARE = [
@@ -137,10 +136,6 @@ EMAIL_PORT = 465
 
 OPTIMIZED_IMAGE_METHOD = 'tinypng'
 TINYPNG_KEY = get_secret('TINYPNG_KEY')
-
-# Imagefit
-
-IMAGEFIT_ROOT = os.path.join(BASE_DIR, 'tmp')
 
 # django
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
