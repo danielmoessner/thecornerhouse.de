@@ -114,7 +114,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'files/app'),
+    os.path.join(BASE_DIR, 'static'),
 ]
 
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
@@ -141,3 +141,6 @@ TINYPNG_KEY = get_secret('TINYPNG_KEY')
 # Imagefit
 
 IMAGEFIT_ROOT = os.path.join(BASE_DIR, 'tmp')
+
+# django
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

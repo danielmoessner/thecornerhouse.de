@@ -370,7 +370,7 @@
                                                             <div class="sc_services_item_featured post_featured">
                                                                 <div class="post_thumb">
                                                                     <a class="hover_icon hover_icon_link" href="{% url 'website:article_category' category.slug %}">
-                                                                        <img alt="{{ category.name }}" src="{{ category.image.url|resize:'400x2000' }}">
+                                                                        <img alt="{{ category.name }}" src="{{ category.image.url }}">
                                                                     </a>
                                                                 </div>
                                                             </div>
@@ -473,7 +473,7 @@
                                                     <li class="filterall eg-washington-wrapper" data-cobblesw="1" data-cobblesh="1">
                                                         <div class="esg-media-cover-wrapper">
                                                             <div class="esg-entry-media">
-                                                                <img src="{{ image.image.url|resize:'500x2000' }}" alt="">
+                                                                <img src="{{ image.image.url }}" alt="">
                                                             </div>
                                                             <div class="esg-entry-cover esg-fade" data-delay="0">
                                                                 <div class="esg-overlay esg-fade eg-washington-container" data-delay="0">
