@@ -16,7 +16,7 @@ body {
 
 /* form */
 .djangoform p {
-    @apply mb-5;
+    @apply mb-5 xl:mb-8;
 }
 
 .djangoform label {
@@ -47,7 +47,7 @@ body {
 }
 
 .djangoform .errorlist {
-    @apply -mt-4 mb-5 pl-4;
+    @apply -mt-4 mb-5 pl-4 lg:-mt-7;
 }
 
 .djangoform .errorlist li {

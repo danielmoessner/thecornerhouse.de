@@ -76,64 +76,23 @@
                     <section class="spv5rem">
                         <div class="container">
                             <div class="sc_form_wrap">
-                                <div class="sc_form sc_form_style_form_1 contact_form_main aligncenter mw470">
-                                    <h1 class="sc_form_title">{{ contact.formular_titel }}</h1>
-                                    <h5 class="sc_form_subtitle sc_item_subtitle"
-                                        style="text-align: left; margin-bottom: 50px;">{{ contact.formular_hinweise|linebreaksbr }}</h5>
-
-                                    <form method="post">
-                                        <div class="sc_form_info">
-                                            <div class="sc_form_item sc_form_field" style="text-align: left;">
-                                                <label class="required">Auf den Namen</label>
-                                                <input required type="text" name="name" placeholder="Muster">
-                                            </div>
-                                            <div class="sc_form_item sc_form_field" style="text-align: left;">
-                                                <label class="required">E-Mail zur Bestätigung</label>
-                                                <input required type="email" name="email"
-                                                       placeholder="beispiel@email.de">
-                                            </div>
-                                            <div class="sc_form_item sc_form_field" style="text-align: left;">
-                                                <label class="required">Telefonnummer</label>
-                                                <input type="tel" required name="phone" placeholder="1234 12345678">
-                                            </div>
-                                            <div class="sc_form_item sc_form_field" style="text-align: left;">
-                                                <label class="required">Anzahl an Personen</label>
-                                                <input required type="number" name="persons"
-                                                       placeholder="1, 2, 3, 4, ..">
-                                            </div>
-                                            <div class="sc_form_item sc_form_field" style="text-align: left;">
-                                                <label class="required">Wann ist es am besten?</label>
-                                                <input required type="date" name="date" placeholder="Datum">
-                                                <input required type="time" name="time" placeholder="Uhrzeit">
-                                            </div>
-                                            <div class="sc_form_item sc_form_field" style="text-align: left;">
-                                                <label class="required">Wo ist es am besten?</label>
-                                                <select required name="location" id="" style="width: 100%;">
-                                                    <option disabled selected value>---</option>
-                                                    {% if contact.formular_biergarten_verfuegbar %}
-                                                        <option value="Biergarten">{{ contact.formular_biergarten }}</option>
-                                                    {% endif %}
-                                                    {% if contact.formular_bar_verfuegbar %}
-                                                        <option value="Bar">Bar</option>
-                                                    {% endif %}
-                                                </select>
-                                            </div>
-                                            <div class="sc_form_item sc_form_field" style="text-align: left;">
-                                                <label for="id_comment" class="">Kommentar (optional)</label>
-                                                <input type="text" id="id_comment" name="comment" />
-                                            </div>
-                                            {% csrf_token %}
+                                <div class="max-w-xl mx-auto">
+                                    <div class="mb-4">
+                                        {% include 'symbols/h1.html' with title=contact.formular_titel %}
+                                    </div>
+                                    <p>
+                                        {{ contact.formular_hinweise|linebreaksbr }}
+                                    </p>
+                                    <form class="mt-10 djangoform" method="post">
+                                        {% include 'symbols/form.html' with form=form %}
+                                        {% csrf_token %}
+                                        <div class="mt-8 text-center">
+                                            <button type="submit" class="sc_form_button">
+                                                {{ contact.formular_button }}
+                                            </button>
                                         </div>
-                                        <div class="sc_contact_form_button">
-                                            <div class="sc_form_item sc_form_button">
-                                                <input type="submit" name="submit"
-                                                       value="{{ contact.formular_button }}"
-                                                       class="sc_form_button"/>
-                                            </div>
-                                        </div>
-                                        <div class="result sc_infobox"></div>
                                     </form>
-                                    <p style="margin-top: 4rem">{{ contact.formular_hinweis|linebreaksbr }}</p>
+                                    <p class="mt-16">{{ contact.formular_hinweis|linebreaksbr }}</p>
                                 </div>
                             </div>
                         </div>

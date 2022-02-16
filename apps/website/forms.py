@@ -1,16 +1,40 @@
 from apps.content.models import Job
 from django import forms
 
+from apps.pages.models import Contact
+
 
 class ContactForm(forms.Form):
-    name = forms.CharField(required=False)
-    persons = forms.IntegerField(required=False)
-    date = forms.CharField(required=False)
-    time = forms.CharField(required=False)
-    email = forms.CharField(required=False)
-    phone = forms.CharField(required=False)
-    location = forms.CharField(required=False)
-    comment = forms.CharField(required=False)
+    name = forms.CharField(label='Auf den Namen', widget=forms.TextInput(attrs={'placeholder': 'Muster'}))
+    email = forms.CharField(label='E-Mail zur Bestätigung',
+                            widget=forms.EmailInput(attrs={'placeholder': 'beispiel@email.de'}))
+    phone = forms.CharField(label='Telefonnummer',
+                            widget=forms.TextInput(attrs={'type': 'tel', 'placeholder': '1234 12345678'}))
+    persons = forms.IntegerField(label='Anzahl an Personen',
+                                 widget=forms.NumberInput(attrs={'placeholder': '1, 2, 3, 4, ..'}))
+    datetime = forms.SplitDateTimeField(label='Wann ist es am besten?', widget=forms.SplitDateTimeWidget(
+        date_attrs={'type': 'date'}, time_attrs={'type': 'time'}))
+    location = forms.ChoiceField(label='Wo ist es am besten?')
+    comment = forms.CharField(label='Kommentar (optional)', widget=forms.Textarea(attrs={'rows': 1}),
+                              required=False)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        page = Contact.get_solo()
+        choices = (
+            ('', '---'),
+        )
+        if page.formular_biergarten_verfuegbar:
+            choices = (*choices, (page.formular_biergarten, page.formular_biergarten))
+        if page.formular_bar_verfuegbar:
+            choices = (*choices, ('Bar', 'Bar'))
+        self.fields['location'].choices = choices
+
+
+    def clean_datetime(self):
+        datetime = self.cleaned_data['datetime']
+        datetime = datetime.strftime('%d.%m.%Y %H:%M')
+        return datetime
 
 
 class JobForm(forms.Form):

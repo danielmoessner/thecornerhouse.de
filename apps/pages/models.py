@@ -16,7 +16,7 @@ class Contact(SingletonModel):
     formular_biergarten_verfuegbar = models.BooleanField(default=True,
                                                          verbose_name='Formular / Ort / Biergarten auswählbar')
     formular_bar_verfuegbar = models.BooleanField(default=True, verbose_name='Formular / Ort / Bar auswählbar')
-    formular_button = models.CharField(default='Jetzt reservieren', max_length=100, verbose_name='Formular / Bar')
+    formular_button = models.CharField(default='Jetzt reservieren', max_length=100, verbose_name='Formular / Button')
     formular_hinweis = models.TextField(default='Die Reservierung wird erst nach der Bestätigung durch uns gültig. '
                                                 'Bitte kontrolliert Euer E-Mail Postfach.',
                                         verbose_name='Formular / Hinweis')

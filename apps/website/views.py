@@ -123,8 +123,7 @@ class ContactView(FormMixin, WebsiteView):
                 'E-Mail: {email}<br>'
                 'Telefon: {phone}<br>'
                 'Anzahl Personen: {persons}<br>'
-                'Datum: {date}<br>'
-                'Uhrzeit: {time}<br>'
+                'Datum und Uhrzeit: {datetime}<br>'
                 'Ort: {location}<br>'
                 'Kommentar: {comment}<br>'
             ).format(**form.cleaned_data)

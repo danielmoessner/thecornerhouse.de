@@ -63,8 +63,7 @@
             </div>
             <div class="max-w-xl mx-auto">
                 <form method='post' action="" class="djangoform" novalidate>
-                    {{ form.as_p }}
-                    {% csrf_token %}
+                    {% include 'symbols/form.html' with form=form %}
                     <button type="submit">{{ page.form_button }}</button>
                 </form>
             </div>
