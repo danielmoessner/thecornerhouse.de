@@ -37,7 +37,8 @@ class ContactForm(forms.Form):
 
 
 class JobForm(forms.Form):
-    job = forms.ModelChoiceField(label='Job', queryset=Job.objects.all(), required=False)
+    # job = forms.ModelChoiceField(label='Job', queryset=Job.objects.all(), required=False)
+    job = forms.CharField(label='Job')
     name = forms.CharField(label='Name')
     email = forms.EmailField(label='E-Mail')
     phone = forms.CharField(label='Telefonnummer')

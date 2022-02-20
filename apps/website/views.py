@@ -94,8 +94,8 @@ class IndexView(WebsiteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['article_categories'] = ArticleCategory.objects.filter(featured=True)
-        context['article_categories_index'] = context['article_categories'][:3]
+        context['article_categories'] = ArticleCategory.objects.all()
+        context['article_categories_index'] = ArticleCategory.objects.filter()[:3]
         context['text_snippets'] = TextSnippet.get_dict('startseite')
         context['events'] = Article.objects.filter(date__gte=datetime.now() - timedelta(days=30),
                                                    category__name='Veranstaltungen')
@@ -110,7 +110,7 @@ class ContactView(FormMixin, WebsiteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['article_categories'] = ArticleCategory.objects.filter(featured=True)
+        context['article_categories'] = ArticleCategory.objects.filter()
         context['text_snippets'] = TextSnippet.get_dict(page='kontakt')
         return context
 
@@ -140,7 +140,7 @@ class ContactThanksView(WebsiteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['article_categories'] = ArticleCategory.objects.filter(featured=True)
+        context['article_categories'] = ArticleCategory.objects.filter()
         context['text_snippets'] = TextSnippet.get_dict(page='danke')
         return context
 
@@ -150,7 +150,7 @@ class MenuView(WebsiteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['article_categories'] = ArticleCategory.objects.filter(featured=True)
+        context['article_categories'] = ArticleCategory.objects.filter()
         context['text_snippets'] = TextSnippet.get_dict(page='menue')
         return context
 
@@ -164,7 +164,7 @@ class BlogView(WebsiteView):
         if 'slug' in kwargs:
             context['article_category'] = get_object_or_404(ArticleCategory, slug=kwargs['slug'])
             context['articles'] = context['articles'].filter(category=context['article_category'])
-        context['article_categories'] = ArticleCategory.objects.filter(featured=True)
+        context['article_categories'] = ArticleCategory.objects.filter()
         return context
 
 
@@ -175,20 +175,40 @@ class StaticPageView(WebsiteView):
         context = super().get_context_data(**kwargs)
         if 'slug' in kwargs:
             context['static_page'] = get_object_or_404(StaticPage, slug=kwargs['slug'])
-        context['article_categories'] = ArticleCategory.objects.filter(featured=True)
+        context['article_categories'] = ArticleCategory.objects.filter()
         return context
 
 
-class ArticleView(WebsiteView):
+class ArticleView(FormMixin, WebsiteView):
     template_name = 'article.html'
+    form_class = JobForm
+    success_url = reverse_lazy('website:jobs_mail_sent')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         if 'slug' in kwargs:
             context['article'] = get_object_or_404(Article, slug=kwargs['slug'])
-        context['article_categories'] = ArticleCategory.objects.filter(featured=True)
+        context['article_categories'] = ArticleCategory.objects.filter()
         context['recent_articles'] = Article.objects.order_by('-date')[:3]
         return context
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            subject = 'Job'
+            message = (
+                'Job: {job}<br>'
+                'Name: {name}<br>'
+                'E-Mail: {email}<br>'
+                'Telefon: {phone}<br>'
+                'Inhalt: <br>{content}<br>'
+            ).format(**form.cleaned_data)
+            from_mail = '{email}'.format(**form.cleaned_data)
+            recipient_list = ['ammadi@hotmail.de', 'happy@thecornerhouse.de']
+            send_mail(subject, message, from_mail, recipient_list, html_message=message)
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
 
 
 class AboutView(WebsiteView):
@@ -196,7 +216,7 @@ class AboutView(WebsiteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['article_categories'] = ArticleCategory.objects.filter(featured=True)
+        context['article_categories'] = ArticleCategory.objects.filter()
         context['text_snippets'] = TextSnippet.get_dict(page='ueber-uns')
         return context
 
