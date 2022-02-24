@@ -25,6 +25,9 @@
             <li class="menu-item menu-item-object-page ">
                 <a href="{% url 'website:about' %}">Über uns</a>
             </li>
+            <li class="menu-item menu-item-object-page ">
+                <a href="{% url 'website:article_category' 'jobs' %}">Jobs</a>
+            </li>
             <li class="menu-item  menu-item-has-children">
                 <a href="#">Blog</a>
                 <ul class="sub-menu">
@@ -77,6 +80,9 @@
                     </li>
                     <li class="menu-item menu-item-object-page ">
                         <a href="{% url 'website:about' %}">Über uns</a>
+                    </li>
+                    <li class="menu-item menu-item-object-page ">
+                        <a href="{% url 'website:article_category' 'jobs' %}">Jobs</a>
                     </li>
                     <li class="menu-item menu-item-has-children ">
                         <a href="#">Blog</a>
