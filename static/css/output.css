@@ -502,6 +502,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
+.pointer-events-none {
+  pointer-events: none;
+}
+
 .visible {
   visibility: visible;
 }
@@ -577,28 +581,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   row-gap: 3rem;
 }
 
-.pt-32 {
-  padding-top: 8rem;
+.pt-12 {
+  padding-top: 3rem;
 }
 
 .pt-64 {
   padding-top: 16rem;
 }
 
-.pt-20 {
-  padding-top: 5rem;
-}
-
-.pt-24 {
-  padding-top: 6rem;
-}
-
-.pt-16 {
-  padding-top: 4rem;
-}
-
-.pt-12 {
-  padding-top: 3rem;
+.pt-32 {
+  padding-top: 8rem;
 }
 
 .text-center {
@@ -663,6 +655,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-gray-900 {
   --tw-text-opacity: 1;
   color: rgb(28 25 23 / var(--tw-text-opacity));
+}
+
+.opacity-10 {
+  opacity: 0.1;
 }
 
 /* background */

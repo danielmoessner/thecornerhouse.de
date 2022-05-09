@@ -87,7 +87,8 @@
                                         {% include 'symbols/form.html' with form=form %}
                                         {% csrf_token %}
                                         <div class="mt-8 text-center">
-                                            <button type="submit" class="sc_form_button">
+                                            <button type="submit" class="sc_form_button {% if not contact.formular_button_aktiv %}opacity-10 pointer-events-none{% endif %}"
+                                                    {% if not contact.formular_button_aktiv %}disabled{% endif %}>
                                                 {{ contact.formular_button }}
                                             </button>
                                         </div>
