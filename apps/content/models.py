@@ -74,7 +74,7 @@ class ArticleCategory(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=200)
-    show = models.BooleanField(default=True)
+    show = models.BooleanField(default=True, verbose_name='Anzeigen')
     category = models.ForeignKey(ArticleCategory, null=True, on_delete=models.SET_NULL, verbose_name='Kategorie')
     location = models.CharField(max_length=100, verbose_name='Ort', help_text='Im Blog klein angezeigt.', blank=True,
                                 null=True)
