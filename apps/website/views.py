@@ -98,7 +98,7 @@ class IndexView(WebsiteView):
         context['article_categories_index'] = ArticleCategory.objects.filter()[:3]
         context['text_snippets'] = TextSnippet.get_dict('startseite')
         context['events'] = Article.objects.filter(date__gte=datetime.now() - timedelta(days=30),
-                                                   category__name='Veranstaltungen')
+                                                   category__name='Veranstaltungen', show=True)
         context['settings'] = Setting.get_dict('startseite')
         return context
 
@@ -160,7 +160,7 @@ class BlogView(WebsiteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['articles'] = Article.objects.all().select_related('category')
+        context['articles'] = Article.objects.filter(show=True).select_related('category')
         if 'slug' in kwargs:
             context['article_category'] = get_object_or_404(ArticleCategory, slug=kwargs['slug'])
             context['articles'] = context['articles'].filter(category=context['article_category'])
@@ -189,7 +189,7 @@ class ArticleView(FormMixin, WebsiteView):
         if 'slug' in kwargs:
             context['article'] = get_object_or_404(Article, slug=kwargs['slug'])
         context['article_categories'] = ArticleCategory.objects.filter()
-        context['recent_articles'] = Article.objects.order_by('-date')[:3]
+        context['recent_articles'] = Article.objects.filter(show=True).order_by('-date')[:3]
         return context
 
     def post(self, request, *args, **kwargs):
