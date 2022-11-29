@@ -1,0 +1,14 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "~=4.1"
+django-debug-toolbar = "~=3.2"
+django-image-optimizer = "~=1.0"
+pillow = "~=9.3"
+python-resize-image = "~=1.1"
+django-solo = "~=2.0"
+
+[dev-packages]

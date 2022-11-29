@@ -47,14 +47,43 @@ Text Domain: oldstory
 
 /* 0. Font family
 -------------------------------------------------------------- */
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700);
-@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900);
-@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700);
-@import url(https://fonts.googleapis.com/css?family=Playfair+Display:700,400italic,400,700italic,900,900italic&subset=latin,latin-ext);
-@import url(https://fonts.googleapis.com/css?family=Sancreek&subset=latin,latin-ext);
-@import url(https://fonts.googleapis.com/css?family=Tinos:400,400italic,700,700italic&subset=latin,latin-ext);
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
-@font-face { 
+/*@import url(https://fonts.googleapis.com/css?family=Tinos:400,400italic,700,700italic);*/
+/*@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);*/
+@font-face {
+	font-family: "Tinos";
+	font-weight: 400;
+	src: url("../fonts/Tinos-Regular.ttf");
+}
+@font-face {
+	font-family: "Tinos";
+	font-weight: 700;
+	src: url("../fonts/Tinos-Bold.ttf");
+}
+@font-face {
+	font-family: "Tinos";
+	font-weight: 400;
+	font-style: italic;
+	src: url("../fonts/Tinos-Italic.ttf");
+}
+@font-face {
+	font-family: "Tinos";
+	font-weight: 700;
+	font-style: italic;
+	src: url("../fonts/Tinos-BoldItalic.ttf");
+}
+
+@font-face {
+	font-family: "Montserrat";
+	font-weight: 400;
+	src: url("../fonts/Montserrat-Regular.ttf");
+}
+@font-face {
+	font-family: "Montserrat";
+	font-weight: 700;
+	src: url("../fonts/Montserrat-Bold.ttf");
+}
+
+@font-face {
 	font-family: "dejavu-serif-bold"; 
 	src: url("../fonts/dejavu-serif.bold.ttf"); 
 }
