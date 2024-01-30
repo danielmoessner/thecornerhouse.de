@@ -3,7 +3,7 @@ from django.views.generic.edit import FormMixin
 from django.views.generic import TemplateView
 from apps.content.models import ArticleCategory, TextSnippet, GalleryImage, Setting, Article, Job
 from django.shortcuts import get_object_or_404
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMessage
 from django.urls import reverse_lazy, reverse
 from datetime import timedelta, datetime
 from .models import StaticPage, CustomCode, Seo
