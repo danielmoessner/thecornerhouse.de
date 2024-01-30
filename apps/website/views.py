@@ -127,7 +127,7 @@ class ContactView(FormMixin, WebsiteView):
                 'Ort: {location}<br>'
                 'Kommentar: {comment}<br>'
             ).format(**form.cleaned_data)
-            reply_mail = '{email}'.format(**form.cleaned_data)
+            reply_email = '{email}'.format(**form.cleaned_data)
             from_email = 'happy@thecornerhouse.de'
             recipient_list = ['ammadi@hotmail.de', 'happy@thecornerhouse.de']
             msg = EmailMessage(subject, message, from_email, recipient_list, reply_to=[reply_email])
