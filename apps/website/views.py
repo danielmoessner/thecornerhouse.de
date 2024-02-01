@@ -131,6 +131,7 @@ class ContactView(FormMixin, WebsiteView):
             from_email = 'happy@thecornerhouse.de'
             recipient_list = ['ammadi@hotmail.de', 'happy@thecornerhouse.de']
             msg = EmailMessage(subject, message, from_email, recipient_list, reply_to=[reply_email])
+            msg.content_subtype = "html"
             msg.send()
             return self.form_valid(form)
         else:
